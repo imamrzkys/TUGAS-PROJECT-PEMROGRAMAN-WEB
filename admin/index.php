@@ -67,8 +67,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-user-graduate"></i>
                         </div>
-                        <a href="mahasiswa.php" class="small-box-footer">
-                            Kelola <i class="fas fa-arrow-circle-right"></i>
+                        <a href="#" class="small-box-footer" onclick="alert('Data Mahasiswa: <?php echo $totalMahasiswa; ?> mahasiswa terdaftar'); return false;">
+                            Info <i class="fas fa-info-circle"></i>
                         </a>
                     </div>
                 </div>
@@ -82,8 +82,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <a href="dosen.php" class="small-box-footer">
-                            Kelola <i class="fas fa-arrow-circle-right"></i>
+                        <a href="#" class="small-box-footer" onclick="alert('Data Dosen: <?php echo $totalDosen; ?> dosen terdaftar'); return false;">
+                            Info <i class="fas fa-info-circle"></i>
                         </a>
                     </div>
                 </div>
@@ -97,8 +97,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-school"></i>
                         </div>
-                        <a href="kelas.php" class="small-box-footer">
-                            Kelola <i class="fas fa-arrow-circle-right"></i>
+                        <a href="#" class="small-box-footer" onclick="alert('Total Kelas: <?php echo $totalKelas; ?> kelas aktif'); return false;">
+                            Info <i class="fas fa-info-circle"></i>
                         </a>
                     </div>
                 </div>
@@ -112,8 +112,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-clipboard-list"></i>
                         </div>
-                        <a href="krs.php" class="small-box-footer">
-                            Lihat <i class="fas fa-arrow-circle-right"></i>
+                        <a href="#" class="small-box-footer" onclick="alert('Total KRS: <?php echo $totalKRS; ?> KRS aktif'); return false;">
+                            Info <i class="fas fa-info-circle"></i>
                         </a>
                     </div>
                 </div>
@@ -129,21 +129,18 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                             </h3>
                         </div>
                         <div class="card-body">
-                            <a href="mahasiswa.php" class="btn btn-primary">
-                                <i class="fas fa-user-plus"></i> Tambah Mahasiswa
-                            </a>
-                            <a href="dosen.php" class="btn btn-success">
-                                <i class="fas fa-user-plus"></i> Tambah Dosen
-                            </a>
-                            <a href="matakuliah.php" class="btn btn-info">
-                                <i class="fas fa-book-medical"></i> Tambah Mata Kuliah
-                            </a>
-                            <a href="kelas.php" class="btn btn-warning">
-                                <i class="fas fa-plus-circle"></i> Buat Kelas
-                            </a>
-                            <a href="pengumuman.php" class="btn btn-danger">
-                                <i class="fas fa-bullhorn"></i> Buat Pengumuman
-                            </a>
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle"></i> Dashboard Admin - Sistem berfungsi untuk manajemen KRS, Input Nilai, dan Hitung IPK
+                            </div>
+                            <p><strong>Fitur yang tersedia:</strong></p>
+                            <ul>
+                                <li>✅ Manajemen Login Multi-role (Admin, Dosen, Mahasiswa)</li>
+                                <li>✅ Input Nilai Mahasiswa (via Dosen)</li>
+                                <li>✅ Pengisian KRS (via Mahasiswa)</li>
+                                <li>✅ Perhitungan IPK Otomatis</li>
+                                <li>✅ View Jadwal Kuliah</li>
+                                <li>✅ Pengumuman Kampus</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
