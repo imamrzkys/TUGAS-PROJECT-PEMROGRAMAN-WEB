@@ -1,81 +1,68 @@
-# SIAKAD Kampus - PHP Version
+# SIAKAD Kampus - Sistem Informasi Akademik
 
 [![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-blue)](https://php.net)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Commits](https://img.shields.io/badge/Commits-39+-success)](https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB/commits/main)
+[![Commits](https://img.shields.io/badge/Commits-41-success)](https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB/commits/main)
 
-## 📚 Deskripsi
-Sistem Informasi Akademik Kampus berbasis web menggunakan PHP murni (tanpa framework) dan AdminLTE.
+## 📚 Tentang Project
 
-**Proyek Tugas Akhir - Pemrograman Web**
+Sistem Informasi Akademik Kampus berbasis web menggunakan **PHP murni (tanpa framework)** dan **AdminLTE**.
 
-🔗 **Live Demo**: [GitHub Repository](https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB.git)
+**Tugas Akhir - Pemrograman Internet 2024**
+
+🔗 **Repository**: https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB.git
 
 ---
 
 ## ✨ Fitur Utama
 
 ### 👨‍🎓 Mahasiswa
-- ✅ Dashboard dengan statistik lengkap
-- ✅ **Isi KRS** - Tambah/hapus mata kuliah
-- ✅ **Lihat Jadwal** - Jadwal kuliah per semester
-- ✅ **Lihat Nilai & Transkrip** - Dengan perhitungan IPK otomatis
-- ✅ Lihat pengumuman kampus
+- ✅ **Isi KRS** - Tambah/hapus mata kuliah dengan validasi kuota
+- ✅ **Lihat Nilai & Transkrip** - Perhitungan IPK otomatis
+- ✅ **Jadwal Kuliah** - Lihat jadwal per semester
+- ✅ Lihat pengumuman
 - ✅ Manajemen profil
 
 ### 👨‍🏫 Dosen
-- ✅ Dashboard dengan statistik kelas
-- ✅ **Input Nilai** - Per komponen (Tugas, UTS, UAS)
-- ✅ Auto calculate nilai akhir dan grade
+- ✅ **Input Nilai** - Per komponen (Tugas 30%, UTS 30%, UAS 40%)
+- ✅ **Auto Calculate** - Nilai akhir dan grade otomatis
 - ✅ Lihat daftar mahasiswa per kelas
 
 ### 👨‍💼 Admin
-- ✅ Dashboard dengan overview sistem
-- ✅ Manajemen mahasiswa, dosen, mata kuliah
-- ✅ Manajemen kelas dan KRS
+- ✅ Dashboard statistik sistem
+- ✅ Manajemen mahasiswa, dosen, kelas
 - ✅ Kelola pengumuman
 
 ---
 
-## 🛠️ Teknologi Stack
+## 🛠️ Teknologi
 
-## 🛠️ Teknologi Stack
-
-### Backend
-- **PHP 7.4+** - Native PHP (No Framework)
-- **MySQL 5.7+** - Database
-- **PDO** - Database abstraction
-- **bcrypt** - Password hashing
-
-### Frontend
-- **AdminLTE 3.2** - Admin template
-- **Bootstrap 4** - CSS framework
-- **jQuery** - JavaScript library
-- **DataTables** - Interactive tables
-- **SweetAlert2** - Beautiful alerts
-- **Font Awesome 5** - Icons
+**Backend**: PHP 7.4+ (Native) | MySQL 5.7+ | PDO  
+**Frontend**: AdminLTE 3.2 | Bootstrap 4 | jQuery | DataTables | SweetAlert2
 
 ---
 
 ## 📊 Sistem Nilai & IPK
 
 ### Komponen Nilai
-- Tugas: 30%
-- UTS: 30%
-- UAS: 40%
+```
+Tugas : 30%
+UTS   : 30%
+UAS   : 40%
+```
 
 ### Konversi Grade
-| Grade | Rentang Nilai | Bobot |
-|-------|---------------|-------|
-| A     | 85-100       | 4.0   |
-| A-    | 80-84        | 3.7   |
-| B+    | 75-79        | 3.3   |
-| B     | 70-74        | 3.0   |
-| B-    | 65-69        | 2.7   |
-| C+    | 60-64        | 2.3   |
-| C     | 55-59        | 2.0   |
-| D     | 40-54        | 1.0   |
-| E     | 0-39         | 0.0   |
+| Grade | Nilai  | Bobot |
+|-------|--------|-------|
+| A     | 85-100 | 4.0   |
+| A-    | 80-84  | 3.7   |
+| B+    | 75-79  | 3.3   |
+| B     | 70-74  | 3.0   |
+| B-    | 65-69  | 2.7   |
+| C+    | 60-64  | 2.3   |
+| C     | 55-59  | 2.0   |
+| D     | 40-54  | 1.0   |
+| E     | 0-39   | 0.0   |
 
 ### Rumus IPK
 ```
@@ -84,44 +71,15 @@ IPK = Σ(Bobot Nilai × SKS) / Σ(SKS)
 
 ---
 
-## 🚀 Instalasi
-- **Backend**: PHP 7.4+ (Native, tanpa framework)
-- **Frontend**: HTML5, CSS3, JavaScript, jQuery
-- **Template**: AdminLTE 3.2
-- **Database**: MySQL / SQLite
-- **Library**: Bootstrap 4, Font Awesome, DataTables
+## 🚀 Instalasi & Menjalankan
 
-## Struktur Folder
-```
-php-version/
-├── config/          # Konfigurasi database & konstanta
-├── controllers/     # Logic bisnis
-├── models/          # Model database
-├── views/           # Tampilan HTML
-├── public/          # Assets (CSS, JS, Images)
-├── includes/        # Header, footer, sidebar
-├── api/             # REST API endpoints
-├── database/        # SQL schema & seed
-└── uploads/         # File upload
-```
-
-
-## 🚀 Instalasi
-
-### Persyaratan
-- PHP 7.4 atau lebih tinggi
-- MySQL 5.7+ atau MariaDB 10.2+
-- Web Server (Apache/Nginx) atau PHP Built-in Server
-
-### Langkah Instalasi
-
-1. **Clone Repository**
+### 1. Clone Repository
 ```bash
 git clone https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB.git
 cd TUGAS-PROJECT-PEMROGRAMAN-WEB
 ```
 
-2. **Setup Database**
+### 2. Setup Database
 ```bash
 # Buat database
 mysql -u root -p -e "CREATE DATABASE siakad_kampus"
@@ -129,121 +87,118 @@ mysql -u root -p -e "CREATE DATABASE siakad_kampus"
 # Import schema
 mysql -u root -p siakad_kampus < database/schema.sql
 
-# Import seed data
+# Import data sample
 mysql -u root -p siakad_kampus < database/seed.sql
 ```
 
-3. **Konfigurasi**
+### 3. Konfigurasi
 ```bash
-# Copy config example
+# Copy & edit config
 cp config/database.example.php config/database.php
-
-# Edit database credentials
-nano config/database.php
 ```
 
-4. **Jalankan Server**
+Edit `config/database.php`:
+```php
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');  // Sesuaikan dengan password MySQL Anda
+define('DB_NAME', 'siakad_kampus');
+```
+
+### 4. Jalankan Server
 ```bash
-# Menggunakan PHP Built-in Server
 php -S localhost:8000
 ```
 
-5. **Akses Aplikasi**
-```
-http://localhost:8000
-```
+### 5. Akses Aplikasi
+Buka browser: **http://localhost:8000**
 
 ---
 
-## 🔐 Default Login
+## 🔐 Akun Testing
 
-### Admin
-- **NIM**: `admin`
-- **Password**: `password123`
-
-### Dosen
-- **NIM**: `D001`
-- **Password**: `password123`
-
-### Mahasiswa
-- **NIM**: `M001` / `M002` / `M003` / `M004`
-- **Password**: `password123`
+| Role      | NIM    | Password     |
+|-----------|--------|--------------|
+| Admin     | admin  | password123  |
+| Dosen     | D001   | password123  |
+| Mahasiswa | M001   | password123  |
+| Mahasiswa | M002   | password123  |
 
 ---
-
-## 📁 Struktur Project
 
 ## 📁 Struktur Project
 
 ```
 php-version/
-├── config/           # Konfigurasi & database
-├── models/           # Model layer (MVC pattern)
-├── includes/         # Layout components
-├── mahasiswa/        # Halaman mahasiswa
-├── dosen/            # Halaman dosen
-├── admin/            # Halaman admin
+├── config/           # Konfigurasi database & app
+├── models/           # Model layer (MVC)
+├── includes/         # Header, footer, sidebar
+├── mahasiswa/        # Pages mahasiswa
+├── dosen/            # Pages dosen
+├── admin/            # Pages admin
 ├── database/         # SQL schema & seed
-├── public/           # CSS & JavaScript assets
-└── uploads/          # File uploads
+├── public/           # CSS & JS assets
+├── uploads/          # File uploads
+└── login.php         # Entry point
 ```
 
 ---
 
-## 📝 Dokumentasi
+## 🎯 Fitur yang Diimplementasikan
 
-- [INSTALASI.md](INSTALASI.md) - Panduan instalasi lengkap
-- [LAPORAN.md](LAPORAN.md) - Laporan project untuk submission
-- [SUMMARY.md](SUMMARY.md) - Ringkasan project
-- [GITHUB_COMMIT_GUIDE.md](GITHUB_COMMIT_GUIDE.md) - Strategi commit
-
----
-
-## 🎯 Testing Checklist
-
-- [x] Login multi-role (Admin, Dosen, Mahasiswa)
-- [x] Mahasiswa: Tambah/hapus KRS
-- [x] Mahasiswa: Lihat jadwal kuliah
-- [x] Mahasiswa: Lihat nilai & transkrip
-- [x] Mahasiswa: Hitung IPK otomatis
-- [x] Dosen: Input nilai mahasiswa
-- [x] Dosen: Auto calculate nilai akhir
-- [x] Admin: Dashboard statistik
-- [x] Security: Password hashing
-- [x] Security: SQL injection prevention
-- [x] UI/UX: Responsive design
-- [x] UI/UX: Interactive elements
+- [x] Login multi-role dengan session
+- [x] **Isi KRS** dengan validasi kuota & SKS
+- [x] **Input Nilai** oleh dosen per komponen
+- [x] **Hitung IPK** otomatis dengan formula
+- [x] Dashboard untuk setiap role
+- [x] Jadwal kuliah mahasiswa
+- [x] Transkrip nilai dengan grade
+- [x] Manajemen profil & password
+- [x] Responsive UI dengan AdminLTE
+- [x] Security: bcrypt, prepared statements
 
 ---
 
-## 📊 GitHub Statistics
+## 📊 Statistik Project
 
-- **Total Commits**: 39+
-- **Total Files**: 50+
-- **Lines of Code**: 3000+
+- **Total Commits**: 41 commits (✅ > 25)
+- **Total Files**: 50+ files
+- **Lines of Code**: 3000+ lines
+- **Database Tables**: 10 tables
 - **Status**: ✅ **COMPLETED**
 
 ---
 
-## 🤝 Kontribusi
+## 🐛 Troubleshooting
 
-Project ini dibuat untuk memenuhi tugas akhir mata kuliah Pemrograman Internet.
+### Error "Connection refused"
+- Pastikan MySQL service sudah running
+- Cek kredensial di `config/database.php`
+
+### Error "Permission denied" saat upload
+```bash
+chmod -R 777 uploads
+```
+
+### Port 8000 sudah digunakan
+```bash
+php -S localhost:8080  # Gunakan port lain
+```
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) file
 
 ---
 
 ## 👨‍💻 Author
 
-Tugas Akhir Pemrograman Internet - 2024
+**Tugas Akhir Pemrograman Internet - 2024**
 
-**Repository**: https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB.git
+Repository: https://github.com/imamrzkys/TUGAS-PROJECT-PEMROGRAMAN-WEB.git
 
 ---
 
-⭐ **Star this repository if you find it helpful!**
-
+⭐ **Star this repo if you find it helpful!**
