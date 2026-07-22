@@ -21,7 +21,7 @@ class Kelas extends BaseModel {
                     k.kuota,
                     k.tahun_ajaran,
                     k.semester,
-                    k.is_active,
+                    k.aktif,
                     mk.kode_matkul,
                     mk.nama_matkul,
                     mk.sks,
