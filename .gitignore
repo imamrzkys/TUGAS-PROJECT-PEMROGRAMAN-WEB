@@ -13,6 +13,12 @@ uploads/*
 # Config
 config/database.php
 
+# Laporan (Keep local only)
+LAPORAN*.md
+SUMMARY.md
+INSTALASI.md
+GITHUB_COMMIT_GUIDE.md
+
 # IDE
 .vscode/
 .idea/
