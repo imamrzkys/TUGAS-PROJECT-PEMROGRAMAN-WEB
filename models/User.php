@@ -5,13 +5,13 @@ require_once __DIR__ . '/BaseModel.php';
  * User Model
  */
 class User extends BaseModel {
-    protected $table = 'profiles';
+    protected $table = 'profil';
     
     /**
      * Login user
      */
     public function login($nim, $password) {
-        $sql = "SELECT * FROM profiles WHERE nim = :nim AND is_active = 1 LIMIT 1";
+        $sql = "SELECT * FROM profil WHERE nim = :nim AND aktif = 1 LIMIT 1";
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['nim' => $nim]);
         $user = $stmt->fetch();
@@ -20,7 +20,7 @@ class User extends BaseModel {
             return ['success' => false, 'message' => 'NIM atau password salah'];
         }
         
-        if (!password_verify($password, $user['password_hash'])) {
+        if (!password_verify($password, $user['kata_sandi'])) {
             return ['success' => false, 'message' => 'NIM atau password salah'];
         }
         
@@ -28,7 +28,7 @@ class User extends BaseModel {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_nim'] = $user['nim'];
         $_SESSION['user_nama'] = $user['nama_lengkap'];
-        $_SESSION['user_role'] = $user['role'];
+        $_SESSION['user_role'] = $user['peran'];
         $_SESSION['user_email'] = $user['email'];
         
         return [
@@ -57,7 +57,7 @@ class User extends BaseModel {
      * Get users by role
      */
     public function getUsersByRole($role) {
-        return $this->findWhere(['role' => $role, 'is_active' => 1], 'nama_lengkap', 'ASC');
+        return $this->findWhere(['peran' => $role, 'aktif' => 1], 'nama_lengkap', 'ASC');
     }
     
     /**
@@ -70,7 +70,7 @@ class User extends BaseModel {
             return ['success' => false, 'message' => 'User tidak ditemukan'];
         }
         
-        if (!password_verify($oldPassword, $user['password_hash'])) {
+        if (!password_verify($oldPassword, $user['kata_sandi'])) {
             return ['success' => false, 'message' => 'Password lama tidak sesuai'];
         }
         
@@ -79,7 +79,7 @@ class User extends BaseModel {
         }
         
         $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-        $this->update($userId, ['password_hash' => $hashedPassword]);
+        $this->update($userId, ['kata_sandi' => $hashedPassword]);
         
         return ['success' => true, 'message' => 'Password berhasil diubah'];
     }
@@ -95,7 +95,7 @@ class User extends BaseModel {
         
         // Hash password
         if (isset($data['password'])) {
-            $data['password_hash'] = password_hash($data['password'], PASSWORD_BCRYPT);
+            $data['kata_sandi'] = password_hash($data['password'], PASSWORD_BCRYPT);
             unset($data['password']);
         }
         
@@ -113,7 +113,7 @@ class User extends BaseModel {
      */
     public function updateProfile($userId, $data) {
         // Remove fields yang tidak boleh diupdate
-        unset($data['password_hash'], $data['nim'], $data['role'], $data['id']);
+        unset($data['kata_sandi'], $data['nim'], $data['peran'], $data['id']);
         
         $this->update($userId, $data);
         
@@ -124,7 +124,7 @@ class User extends BaseModel {
      * Get mahasiswa dengan filter
      */
     public function getMahasiswa($filters = []) {
-        $sql = "SELECT * FROM profiles WHERE role = 'mahasiswa' AND is_active = 1";
+        $sql = "SELECT * FROM profil WHERE peran = 'mahasiswa' AND aktif = 1";
         $params = [];
         
         if (!empty($filters['jurusan'])) {

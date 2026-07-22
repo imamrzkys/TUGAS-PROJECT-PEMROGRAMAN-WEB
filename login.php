@@ -23,25 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             $db = Database::getInstance()->getConnection();
-            $stmt = $db->prepare("SELECT * FROM profiles WHERE nim = ? AND is_active = 1 LIMIT 1");
+            $stmt = $db->prepare("SELECT * FROM profil WHERE nim = ? AND aktif = 1 LIMIT 1");
             $stmt->execute([$nim]);
             $user = $stmt->fetch();
             
-            if ($user && password_verify($password, $user['password_hash'])) {
+            if ($user && password_verify($password, $user['kata_sandi'])) {
                 // Login berhasil
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_nim'] = $user['nim'];
                 $_SESSION['user_nama'] = $user['nama_lengkap'];
-                $_SESSION['user_role'] = $user['role'];
+                $_SESSION['user_role'] = $user['peran'];
                 $_SESSION['user_email'] = $user['email'];
                 
-                header("Location: /{$user['role']}/index.php");
+                header("Location: /{$user['peran']}/index.php");
                 exit;
             } else {
                 $error = 'NIM atau password salah';
             }
         } catch (Exception $e) {
-            $error = 'Terjadi kesalahan sistem';
+            $error = 'Terjadi kesalahan sistem: ' . $e->getMessage();
         }
     }
 }
