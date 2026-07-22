@@ -31,76 +31,35 @@
                     </a>
                 </li>
 
-                <li class="nav-header">MANAJEMEN USER</li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/mahasiswa.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'mahasiswa.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-user-graduate"></i>
-                        <p>Data Mahasiswa</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/dosen.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'dosen.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                        <p>Data Dosen</p>
-                    </a>
-                </li>
-
-                <li class="nav-header">MANAJEMEN AKADEMIK</li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/matakuliah.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'matakuliah.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-book-open"></i>
-                        <p>Mata Kuliah</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/kelas.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelas.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-school"></i>
-                        <p>Kelas</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/krs.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'krs.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-clipboard-list"></i>
-                        <p>Data KRS</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/nilai.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'nilai.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-star"></i>
-                        <p>Data Nilai</p>
-                    </a>
-                </li>
-
-                <li class="nav-header">KEUANGAN</li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/pembayaran.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pembayaran.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-money-bill-wave"></i>
-                        <p>Data Pembayaran</p>
-                    </a>
-                </li>
-
                 <li class="nav-header">INFORMASI</li>
 
                 <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/pengumuman.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pengumuman.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-bullhorn"></i>
-                        <p>Pengumuman</p>
+                    <a href="#" class="nav-link" onclick="alert('Total Mahasiswa: 4\nTotal Dosen: 3\nTotal Kelas: 6'); return false;">
+                        <i class="nav-icon fas fa-info-circle"></i>
+                        <p>Info Sistem</p>
                     </a>
                 </li>
 
-                <li class="nav-header">LAPORAN</li>
+                <li class="nav-header">AKUN</li>
 
                 <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/laporan.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'laporan.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-file-alt"></i>
-                        <p>Laporan</p>
+                    <a href="<?php echo BASE_URL; ?>/profile.php" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Profil Saya</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>/change-password.php" class="nav-link">
+                        <i class="nav-icon fas fa-key"></i>
+                        <p>Ubah Password</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>/logout.php" class="nav-link text-danger">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Logout</p>
                     </a>
                 </li>
 
