@@ -27,6 +27,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- AdminLTE App -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
+<!-- Custom JS -->
+<script src="<?php echo BASE_URL; ?>/public/js/app.js"></script>
 
 <script>
 // DataTables default config
