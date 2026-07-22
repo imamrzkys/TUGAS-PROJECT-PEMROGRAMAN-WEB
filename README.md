@@ -1,7 +1,12 @@
 # SIAKAD Kampus - PHP Version
 
+[![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-blue)](https://php.net)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
 ## Deskripsi
 Sistem Informasi Akademik Kampus berbasis web menggunakan PHP murni (tanpa framework) dan AdminLTE.
+
+**Proyek Tugas Akhir - Pemrograman Web**
 
 ## Fitur Utama
 - ✅ Login Multi Role (Admin, Dosen, Mahasiswa)
