@@ -16,6 +16,7 @@ define('BASE_PATH', dirname(__DIR__));
 define('APP_NAME', 'SIAKAD Kampus');
 define('APP_VERSION', '1.0.0');
 define('APP_DESCRIPTION', 'Sistem Informasi Akademik Kampus');
+define('APP_AUTHOR', 'Tugas Akhir Pemrograman Web');
 
 // Security Settings
 define('JWT_SECRET', 'your-secret-key-here-change-in-production');
