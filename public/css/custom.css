@@ -1,25 +1,17 @@
 /**
  * Custom CSS untuk SIAKAD Kampus
+ * Design: Red Theme - Modern & Clean
  */
 
-/* Brand Colors */
+/* Brand Colors - RED THEME */
 :root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
+    --primary-color: #ff6b6b;
+    --secondary-color: #ee5a6f;
     --success-color: #10b981;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
     --info-color: #3b82f6;
-}
-
-/* Login Page Styling */
-.login-page {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-}
-
-.login-box .card {
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --dark-red: #c44569;
 }
 
 /* Brand Link */
@@ -34,47 +26,92 @@
 /* Active Menu */
 .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
-    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+    box-shadow: 0 2px 10px rgba(255, 107, 107, 0.5);
 }
 
 /* Small Box Hover Effect */
 .small-box {
     transition: all 0.3s ease;
+    border-radius: 15px;
 }
 
 .small-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.small-box.bg-info {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%) !important;
+}
+
+.small-box.bg-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.small-box.bg-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.small-box.bg-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
 }
 
 /* Card Header */
 .card-header {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(238, 90, 111, 0.1) 100%);
     border-bottom: 2px solid var(--primary-color);
+    border-radius: 0.25rem 0.25rem 0 0 !important;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: none;
 }
 
 /* Button Primary Custom */
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-red) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border: none;
+    border-radius: 10px;
 }
 
 /* Table Styling */
 .table thead th {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(238, 90, 111, 0.1) 100%);
     color: var(--primary-color);
     font-weight: 600;
     border-bottom: 2px solid var(--primary-color);
 }
 
 .table-hover tbody tr:hover {
-    background-color: rgba(102, 126, 234, 0.05);
+    background-color: rgba(255, 107, 107, 0.05);
 }
 
 /* Badge Custom */
@@ -82,36 +119,110 @@
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
+.badge-success {
+    background: #10b981;
+}
+
+.badge-danger {
+    background: #ef4444;
+}
+
+.badge-warning {
+    background: #f59e0b;
+}
+
+.badge-info {
+    background: #3b82f6;
+}
+
 /* Info Box Custom */
 .info-box {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
 }
 
 .info-box:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.info-box.bg-info {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(238, 90, 111, 0.1) 100%) !important;
+    color: var(--primary-color) !important;
 }
 
 /* Content Header */
 .content-header {
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
-    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(238, 90, 111, 0.05) 100%);
+    border-bottom: 1px solid rgba(255, 107, 107, 0.2);
     margin-bottom: 20px;
     padding: 20px 15px;
+    border-radius: 0 0 15px 15px;
+}
+
+.content-header h1 {
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 /* Form Control Focus */
 .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25);
 }
 
 /* Alert Custom */
 .alert {
-    border-radius: 10px;
+    border-radius: 12px;
     border: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.alert-success {
+    background: #d1fae5;
+    color: #065f46;
+    border-left: 4px solid #10b981;
+}
+
+.alert-danger {
+    background: #fee2e2;
+    color: #991b1b;
+    border-left: 4px solid #ef4444;
+}
+
+.alert-warning {
+    background: #fef3c7;
+    color: #92400e;
+    border-left: 4px solid #f59e0b;
+}
+
+.alert-info {
+    background: #dbeafe;
+    color: #1e40af;
+    border-left: 4px solid #3b82f6;
+}
+
+/* Sidebar */
+.sidebar-dark-primary .sidebar {
+    background: #2c3e50;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 5px 10px;
+}
+
+.sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link:hover {
+    background: rgba(255, 107, 107, 0.1);
+    color: #fff;
+}
+
+/* Main Header */
+.main-header {
+    border-bottom: 1px solid rgba(255, 107, 107, 0.1);
 }
 
 /* Print Styling */
@@ -134,5 +245,9 @@
     
     .small-box .inner h3 {
         font-size: 2rem;
+    }
+    
+    .card {
+        margin-bottom: 15px;
     }
 }

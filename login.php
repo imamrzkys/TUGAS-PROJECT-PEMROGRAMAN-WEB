@@ -1,32 +1,59 @@
 <?php
-require_once __DIR__ . '/config/config.php';
-require_once __DIR__ . '/config/helpers.php';
-require_once __DIR__ . '/models/User.php';
+session_start();
+require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/config/Database.class.php';
 
 // Redirect jika sudah login
-if (isLoggedIn()) {
+if (isset($_SESSION['user_id'])) {
     $role = $_SESSION['user_role'];
-    redirect('/' . $role . '/index.php');
+    header("Location: /{$role}/index.php");
+    exit;
 }
+
+$error = '';
+$success = '';
 
 // Process login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nim = sanitize($_POST['nim'] ?? '');
+    $nim = trim($_POST['nim'] ?? '');
     $password = $_POST['password'] ?? '';
     
     if (empty($nim) || empty($password)) {
-        setFlash('error', 'NIM dan password wajib diisi');
+        $error = 'NIM dan password wajib diisi';
     } else {
-        $userModel = new User();
-        $result = $userModel->login($nim, $password);
-        
-        if ($result['success']) {
-            $role = $result['user']['role'];
-            redirect('/' . $role . '/index.php');
-        } else {
-            setFlash('error', $result['message']);
+        try {
+            $db = Database::getInstance()->getConnection();
+            $stmt = $db->prepare("SELECT * FROM profiles WHERE nim = ? AND is_active = 1 LIMIT 1");
+            $stmt->execute([$nim]);
+            $user = $stmt->fetch();
+            
+            if ($user && password_verify($password, $user['password_hash'])) {
+                // Login berhasil
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_nim'] = $user['nim'];
+                $_SESSION['user_nama'] = $user['nama_lengkap'];
+                $_SESSION['user_role'] = $user['role'];
+                $_SESSION['user_email'] = $user['email'];
+                
+                header("Location: /{$user['role']}/index.php");
+                exit;
+            } else {
+                $error = 'NIM atau password salah';
+            }
+        } catch (Exception $e) {
+            $error = 'Terjadi kesalahan sistem';
         }
     }
+}
+
+// Get flash messages
+if (isset($_SESSION['flash_error'])) {
+    $error = $_SESSION['flash_error'];
+    unset($_SESSION['flash_error']);
+}
+if (isset($_SESSION['flash_success'])) {
+    $success = $_SESSION['flash_success'];
+    unset($_SESSION['flash_success']);
 }
 ?>
 <!DOCTYPE html>
@@ -34,112 +61,309 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo APP_NAME; ?> - Login</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <title>SIAKAD - Login</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css">
-    <!-- AdminLTE -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        .login-page {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .login-box {
-            width: 400px;
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        .login-logo a {
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        
+        .login-container {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            width: 100%;
+            max-width: 450px;
+            animation: slideUp 0.5s ease;
         }
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        
+        .login-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .login-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .login-header p {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .login-body {
+            padding: 40px 30px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .input-wrapper i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6b6b;
+            font-size: 18px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 15px 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
             border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            margin-top: 10px;
         }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+        }
+        
+        .btn-login:active {
+            transform: translateY(0);
+        }
+        
+        .alert {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .alert-danger {
+            background: #fee;
+            color: #c33;
+            border-left: 4px solid #c33;
+        }
+        
+        .alert-success {
+            background: #efe;
+            color: #3c3;
+            border-left: 4px solid #3c3;
+        }
+        
+        .demo-accounts {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px dashed #e0e0e0;
+        }
+        
+        .demo-accounts h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .demo-item {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .demo-item strong {
+            color: #ff6b6b;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .demo-item code {
+            background: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #333;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .footer-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #999;
+        }
+        
+        .university-info {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .university-info strong {
+            display: block;
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .university-info p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
         }
     </style>
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="#"><b><?php echo APP_NAME; ?></b></a>
-    </div>
-    
-    <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">Silakan login untuk memulai sesi Anda</p>
-
-            <?php if ($error = getFlash('error')): ?>
-                <div class="alert alert-danger alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo $error; ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($success = getFlash('success')): ?>
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <?php echo $success; ?>
-                </div>
-            <?php endif; ?>
-
-            <form method="post">
-                <div class="input-group mb-3">
-                    <input type="text" name="nim" class="form-control" placeholder="NIM" required autofocus>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-user"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-sign-in-alt"></i> Login
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-            <hr>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>SIAKAD</h1>
+            <p>Sistem Informasi Akademik Kampus</p>
+        </div>
+        
+        <div class="login-body">
+            <p class="subtitle">Silakan login untuk mengakses sistem</p>
             
-            <div class="text-center">
-                <small class="text-muted">
-                    <strong>Demo Akun:</strong><br>
-                    Admin: <code>admin</code> / <code>password123</code><br>
-                    Dosen: <code>D001</code> / <code>password123</code><br>
-                    Mahasiswa: <code>M001</code> / <code>password123</code>
-                </small>
+            <?php if ($error): ?>
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span><?php echo htmlspecialchars($error); ?></span>
+                </div>
+            <?php endif; ?>
+            
+            <?php if ($success): ?>
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i>
+                    <span><?php echo htmlspecialchars($success); ?></span>
+                </div>
+            <?php endif; ?>
+            
+            <form method="POST" action="">
+                <div class="form-group">
+                    <label for="nim">NIM</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="nim" name="nim" class="form-control" placeholder="Masukkan NIM" required autofocus>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan Password" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            
+            <div class="demo-accounts">
+                <h3>📝 Akun Demo untuk Testing</h3>
+                <div class="demo-item">
+                    <strong>Admin</strong>
+                    NIM: <code>admin</code> | Password: <code>password123</code>
+                </div>
+                <div class="demo-item">
+                    <strong>Dosen</strong>
+                    NIM: <code>D001</code> | Password: <code>password123</code>
+                </div>
+                <div class="demo-item">
+                    <strong>Mahasiswa</strong>
+                    NIM: <code>M001</code> | Password: <code>password123</code>
+                </div>
             </div>
+            
+            <div class="university-info">
+                <strong>Imam Rizki Saputra</strong>
+                <p>
+                    NIM: 301230013<br>
+                    Teknik Informatika<br>
+                    Universitas Bale Bandung
+                </p>
+            </div>
+            
+            <p class="footer-text">
+                © 2024 SIAKAD. Tugas Pemrograman Web.
+            </p>
         </div>
     </div>
-</div>
-
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js"></script>
 </body>
 </html>
