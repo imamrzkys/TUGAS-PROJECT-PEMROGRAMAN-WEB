@@ -18,7 +18,7 @@ $kelasFilter = [
     'dosen_id' => $user['id'],
     'tahun_ajaran' => $tahunAjaranAktif,
     'semester' => $semesterAktif,
-    'is_active' => 1
+    'aktif' => 1
 ];
 $kelasDiajar = $kelasModel->getKelasWithDetails($kelasFilter);
 

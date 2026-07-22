@@ -13,9 +13,9 @@ class Pengumuman extends BaseModel {
     public function getPublishedPengumuman($limit = null) {
         $sql = "SELECT p.*, prof.nama_lengkap as author_name
                 FROM pengumuman p
-                LEFT JOIN profiles prof ON p.author_id = prof.id
-                WHERE p.is_published = 1
-                ORDER BY p.created_at DESC";
+                LEFT JOIN profil prof ON p.pembuat_id = prof.id
+                WHERE p.dipublikasi = 1
+                ORDER BY p.dibuat_pada DESC";
         
         if ($limit) {
             $sql .= " LIMIT " . intval($limit);
@@ -30,8 +30,8 @@ class Pengumuman extends BaseModel {
     public function getAllPengumuman() {
         $sql = "SELECT p.*, prof.nama_lengkap as author_name
                 FROM pengumuman p
-                LEFT JOIN profiles prof ON p.author_id = prof.id
-                ORDER BY p.created_at DESC";
+                LEFT JOIN profil prof ON p.pembuat_id = prof.id
+                ORDER BY p.dibuat_pada DESC";
         
         return $this->query($sql);
     }
@@ -42,9 +42,9 @@ class Pengumuman extends BaseModel {
     public function getByKategori($kategori, $limit = null) {
         $sql = "SELECT p.*, prof.nama_lengkap as author_name
                 FROM pengumuman p
-                LEFT JOIN profiles prof ON p.author_id = prof.id
-                WHERE p.is_published = 1 AND p.kategori = :kategori
-                ORDER BY p.created_at DESC";
+                LEFT JOIN profil prof ON p.pembuat_id = prof.id
+                WHERE p.dipublikasi = 1 AND p.kategori = :kategori
+                ORDER BY p.dibuat_pada DESC";
         
         if ($limit) {
             $sql .= " LIMIT " . intval($limit);

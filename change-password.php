@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect('/change-password.php');
 }
 
-$role = $user['role'];
+$role = $user['peran'];
 $sidebarFile = __DIR__ . '/includes/sidebar-' . $role . '.php';
 
 include __DIR__ . '/includes/header.php';

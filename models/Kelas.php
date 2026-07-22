@@ -29,7 +29,7 @@ class Kelas extends BaseModel {
                     (SELECT COUNT(*) FROM krs WHERE kelas_id = k.id AND status = 'aktif') as jumlah_mahasiswa
                 FROM kelas k
                 JOIN mata_kuliah mk ON k.matakuliah_id = mk.id
-                JOIN profiles p ON k.dosen_id = p.id
+                JOIN profil p ON k.dosen_id = p.id
                 WHERE 1=1";
         
         $params = [];
@@ -49,9 +49,9 @@ class Kelas extends BaseModel {
             $params['dosen_id'] = $filters['dosen_id'];
         }
         
-        if (isset($filters['is_active'])) {
-            $sql .= " AND k.is_active = :is_active";
-            $params['is_active'] = $filters['is_active'];
+        if (isset($filters['aktif'])) {
+            $sql .= " AND k.aktif = :aktif";
+            $params['aktif'] = $filters['aktif'];
         }
         
         $sql .= " ORDER BY mk.nama_matkul, k.kode_kelas";
@@ -74,7 +74,7 @@ class Kelas extends BaseModel {
                     (SELECT COUNT(*) FROM krs WHERE kelas_id = k.id AND status = 'aktif') as jumlah_mahasiswa
                 FROM kelas k
                 JOIN mata_kuliah mk ON k.matakuliah_id = mk.id
-                JOIN profiles p ON k.dosen_id = p.id
+                JOIN profil p ON k.dosen_id = p.id
                 WHERE k.id = :id";
         
         return $this->queryOne($sql, ['id' => $kelasId]);

@@ -30,7 +30,7 @@ class KRS extends BaseModel {
                 FROM krs k
                 JOIN kelas kl ON k.kelas_id = kl.id
                 JOIN mata_kuliah mk ON kl.matakuliah_id = mk.id
-                JOIN profiles p ON kl.dosen_id = p.id
+                JOIN profil p ON kl.dosen_id = p.id
                 WHERE k.mahasiswa_id = :mahasiswa_id";
         
         $params = ['mahasiswa_id' => $mahasiswaId];
@@ -145,7 +145,7 @@ class KRS extends BaseModel {
                     p.semester_aktif,
                     k.status
                 FROM krs k
-                JOIN profiles p ON k.mahasiswa_id = p.id
+                JOIN profil p ON k.mahasiswa_id = p.id
                 WHERE k.kelas_id = :kelas_id
                 ORDER BY p.nim";
         

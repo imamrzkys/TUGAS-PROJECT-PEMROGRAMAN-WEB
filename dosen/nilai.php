@@ -15,7 +15,7 @@ $krsModel = new KRS();
 $nilaiModel = new Nilai();
 
 // Get kelas yang diajar
-$kelasFilter = ['dosen_id' => $user['id'], 'is_active' => 1];
+$kelasFilter = ['dosen_id' => $user['id'], 'aktif' => 1];
 $kelasDiajar = $kelasModel->getKelasWithDetails($kelasFilter);
 
 // Get selected kelas

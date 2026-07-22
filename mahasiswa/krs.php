@@ -49,7 +49,7 @@ $totalSKS = $krsModel->getTotalSKS($user['id'], $tahunAjaranAktif, $semesterAkti
 $kelasFilter = [
     'tahun_ajaran' => $tahunAjaranAktif,
     'semester' => $semesterAktif,
-    'is_active' => 1
+    'aktif' => 1
 ];
 $kelasTersedia = $kelasModel->getKelasWithDetails($kelasFilter);
 

@@ -15,9 +15,9 @@ $kelasModel = new Kelas();
 $krsModel = new KRS();
 
 // Get statistik
-$totalMahasiswa = $userModel->count(['role' => 'mahasiswa', 'is_active' => 1]);
-$totalDosen = $userModel->count(['role' => 'dosen', 'is_active' => 1]);
-$totalKelas = $kelasModel->count(['is_active' => 1]);
+$totalMahasiswa = $userModel->count(['peran' => 'mahasiswa', 'aktif' => 1]);
+$totalDosen = $userModel->count(['peran' => 'dosen', 'aktif' => 1]);
+$totalKelas = $kelasModel->count(['aktif' => 1]);
 
 $db = getDB();
 $stmt = $db->query("SELECT COUNT(*) as total FROM krs WHERE status = 'aktif'");

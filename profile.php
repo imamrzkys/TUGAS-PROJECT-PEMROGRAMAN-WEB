@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     redirect('/profile.php');
 }
 
-$role = $user['role'];
+$role = $user['peran'];
 $sidebarFile = __DIR__ . '/includes/sidebar-' . $role . '.php';
 
 include __DIR__ . '/includes/header.php';
@@ -82,14 +82,14 @@ include $sidebarFile;
                             </div>
                             <h3 class="profile-username text-center"><?php echo $userDetail['nama_lengkap']; ?></h3>
                             <p class="text-muted text-center">
-                                <?php echo ucfirst($userDetail['role']); ?><br>
+                                <?php echo ucfirst($userDetail['peran']); ?><br>
                                 <?php echo $userDetail['nim']; ?>
                             </p>
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
                                     <b>Program Studi</b> <span class="float-right"><?php echo $userDetail['program_studi'] ?? '-'; ?></span>
                                 </li>
-                                <?php if ($userDetail['role'] == 'mahasiswa'): ?>
+                                <?php if ($userDetail['peran'] == 'mahasiswa'): ?>
                                 <li class="list-group-item">
                                     <b>Angkatan</b> <span class="float-right"><?php echo $userDetail['angkatan'] ?? '-'; ?></span>
                                 </li>

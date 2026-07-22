@@ -148,7 +148,7 @@ class Nilai extends BaseModel {
                     ) as nilai_detail,
                     COALESCE(SUM(n.nilai * n.bobot / 100), 0) as nilai_akhir
                 FROM krs k
-                JOIN profiles p ON k.mahasiswa_id = p.id
+                JOIN profil p ON k.mahasiswa_id = p.id
                 LEFT JOIN nilai n ON n.krs_id = k.id
                 WHERE k.kelas_id = :kelas_id
                 AND k.status = 'aktif'

@@ -52,7 +52,7 @@ include __DIR__ . '/../includes/sidebar-mahasiswa.php';
                         <div class="card-footer text-muted">
                             <small>
                                 <i class="fas fa-user"></i> <?php echo $pengumuman['author_name'] ?? 'Admin'; ?> | 
-                                <i class="fas fa-calendar"></i> <?php echo formatTanggalIndo($pengumuman['created_at']); ?>
+                                <i class="fas fa-calendar"></i> <?php echo formatTanggalIndo($pengumuman['dibuat_pada']); ?>
                             </small>
                         </div>
                     </div>
