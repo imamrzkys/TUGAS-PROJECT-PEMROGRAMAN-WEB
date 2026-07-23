@@ -67,8 +67,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-user-graduate"></i>
                         </div>
-                        <a href="#" class="small-box-footer" onclick="alert('Data Mahasiswa: <?php echo $totalMahasiswa; ?> mahasiswa terdaftar'); return false;">
-                            Info <i class="fas fa-info-circle"></i>
+                        <a href="#" class="small-box-footer" onclick="window.location.href='/admin/mahasiswa.php'; return false;">
+                            Lihat Data <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
                 </div>
@@ -82,8 +82,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <a href="#" class="small-box-footer" onclick="alert('Data Dosen: <?php echo $totalDosen; ?> dosen terdaftar'); return false;">
-                            Info <i class="fas fa-info-circle"></i>
+                        <a href="#" class="small-box-footer" onclick="window.location.href='/admin/dosen.php'; return false;">
+                            Lihat Data <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
                 </div>
@@ -97,8 +97,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-school"></i>
                         </div>
-                        <a href="#" class="small-box-footer" onclick="alert('Total Kelas: <?php echo $totalKelas; ?> kelas aktif'); return false;">
-                            Info <i class="fas fa-info-circle"></i>
+                        <a href="#" class="small-box-footer" onclick="window.location.href='/admin/kelas.php'; return false;">
+                            Lihat Data <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>
                 </div>
@@ -112,8 +112,8 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="icon">
                             <i class="fas fa-clipboard-list"></i>
                         </div>
-                        <a href="#" class="small-box-footer" onclick="alert('Total KRS: <?php echo $totalKRS; ?> KRS aktif'); return false;">
-                            Info <i class="fas fa-info-circle"></i>
+                        <a href="#" class="small-box-footer">
+                            Info KRS <i class="fas fa-info-circle"></i>
                         </a>
                     </div>
                 </div>
