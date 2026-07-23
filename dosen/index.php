@@ -344,65 +344,72 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
 
                 <!-- Sidebar Kanan -->
                 <div class="col-xl-4 col-lg-12 mb-4">
-                    <!-- Statistik Performa -->
+                    <!-- Statistik & Info Card -->
                     <div class="card mb-4" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-                        <div class="card-body" style="padding: 25px;">
-                            <h6 style="font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">
-                                <i class="fas fa-chart-pie" style="color: var(--primary-blue);"></i> Statistik Pengajaran
+                        <div class="card-body" style="padding: 20px;">
+                            <h6 style="font-weight: 700; margin-bottom: 15px; color: var(--text-primary); font-size: 14px;">
+                                <i class="fas fa-chart-line" style="color: var(--primary-blue);"></i> Statistik Pengajaran
                             </h6>
                             
                             <!-- Completion Rate -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Materi Terselesaikan</span>
-                                    <span style="font-size: 14px; font-weight: 700; color: var(--primary-blue);">85%</span>
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Materi Terselesaikan</span>
+                                    <span style="font-size: 13px; font-weight: 700; color: var(--primary-blue);">85%</span>
                                 </div>
-                                <div style="background: #E5E7EB; border-radius: 10px; height: 8px; overflow: hidden;">
+                                <div style="background: #E5E7EB; border-radius: 10px; height: 6px; overflow: hidden;">
                                     <div style="background: linear-gradient(90deg, #0066FF 0%, #0052CC 100%); height: 100%; width: 85%; transition: width 0.3s;"></div>
                                 </div>
                             </div>
 
                             <!-- Attendance Rate -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Kehadiran Mahasiswa</span>
-                                    <span style="font-size: 14px; font-weight: 700; color: var(--primary-green);">92%</span>
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Kehadiran Mahasiswa</span>
+                                    <span style="font-size: 13px; font-weight: 700; color: var(--primary-green);">92%</span>
                                 </div>
-                                <div style="background: #E5E7EB; border-radius: 10px; height: 8px; overflow: hidden;">
+                                <div style="background: #E5E7EB; border-radius: 10px; height: 6px; overflow: hidden;">
                                     <div style="background: linear-gradient(90deg, #06D6A0 0%, #059669 100%); height: 100%; width: 92%; transition: width 0.3s;"></div>
                                 </div>
                             </div>
 
                             <!-- Assignment Submission -->
-                            <div style="margin-bottom: 0;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                    <span style="font-size: 13px; color: var(--text-secondary); font-weight: 500;">Pengumpulan Tugas</span>
-                                    <span style="font-size: 14px; font-weight: 700; color: var(--primary-orange);">78%</span>
+                            <div style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                    <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Pengumpulan Tugas</span>
+                                    <span style="font-size: 13px; font-weight: 700; color: var(--primary-orange);">78%</span>
                                 </div>
-                                <div style="background: #E5E7EB; border-radius: 10px; height: 8px; overflow: hidden;">
+                                <div style="background: #E5E7EB; border-radius: 10px; height: 6px; overflow: hidden;">
                                     <div style="background: linear-gradient(90deg, #F59E0B 0%, #D97706 100%); height: 100%; width: 78%; transition: width 0.3s;"></div>
                                 </div>
+                            </div>
+
+                            <!-- Quick Stats Inline -->
+                            <div style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); padding: 15px; border-radius: 12px; color: white; text-align: center;">
+                                <i class="fas fa-calendar-check" style="font-size: 24px; opacity: 0.9; margin-bottom: 8px;"></i>
+                                <h4 style="font-size: 28px; font-weight: 700; margin: 0; line-height: 1;">14</h4>
+                                <p style="font-size: 11px; opacity: 0.9; margin: 4px 0 0 0;">Pertemuan Tersisa • Semester Ganjil 2026/2027</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Pengumuman Terbaru -->
-                    <div class="card mb-4" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-                        <div class="card-header" style="background: white; border-bottom: 1px solid var(--border-color); padding: 20px;">
-                            <h6 style="font-weight: 700; margin: 0; color: var(--text-primary);">
-                                <i class="fas fa-bullhorn" style="color: var(--primary-orange);"></i> Pengumuman
+                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                        <div class="card-header" style="background: white; border-bottom: 1px solid var(--border-color); padding: 15px 20px;">
+                            <h6 style="font-weight: 700; margin: 0; color: var(--text-primary); font-size: 14px;">
+                                <i class="fas fa-bullhorn" style="color: var(--primary-orange);"></i> Pengumuman Terkini
                             </h6>
                         </div>
-                        <div class="card-body" style="padding: 20px; max-height: 300px; overflow-y: auto;">
+                        <div class="card-body" style="padding: 15px; max-height: 280px; overflow-y: auto;">
                             <!-- Announcement 1 -->
-                            <div style="padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color);">
-                                <div style="display: flex; align-items: start; gap: 10px;">
-                                    <div style="width: 8px; height: 8px; background: var(--primary-red); border-radius: 50%; margin-top: 6px; flex-shrink: 0;"></div>
+                            <div style="padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; align-items: start; gap: 8px;">
+                                    <div style="width: 6px; height: 6px; background: var(--primary-red); border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
                                     <div style="flex: 1;">
-                                        <span class="badge badge-danger" style="font-size: 9px; margin-bottom: 5px;">PENTING</span>
-                                        <div style="font-weight: 600; font-size: 13px; color: var(--text-primary); margin-bottom: 5px;">Pengumpulan Nilai Tengah Semester</div>
-                                        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 5px;">Batas pengumpulan nilai UTS paling lambat 25 Juli 2026.</div>
-                                        <div style="font-size: 10px; color: var(--text-muted);">
+                                        <span class="badge badge-danger" style="font-size: 8px; margin-bottom: 4px; padding: 2px 6px;">PENTING</span>
+                                        <div style="font-weight: 600; font-size: 12px; color: var(--text-primary); margin-bottom: 4px; line-height: 1.3;">Pengumpulan Nilai Tengah Semester</div>
+                                        <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.4;">Batas pengumpulan nilai UTS paling lambat 25 Juli 2026.</div>
+                                        <div style="font-size: 9px; color: var(--text-muted);">
                                             <i class="far fa-clock"></i> 3 jam lalu
                                         </div>
                                     </div>
@@ -410,14 +417,14 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                             </div>
 
                             <!-- Announcement 2 -->
-                            <div style="padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color);">
-                                <div style="display: flex; align-items: start; gap: 10px;">
-                                    <div style="width: 8px; height: 8px; background: var(--primary-blue); border-radius: 50%; margin-top: 6px; flex-shrink: 0;"></div>
+                            <div style="padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--border-color);">
+                                <div style="display: flex; align-items: start; gap: 8px;">
+                                    <div style="width: 6px; height: 6px; background: var(--primary-blue); border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
                                     <div style="flex: 1;">
-                                        <span class="badge badge-primary" style="font-size: 9px; margin-bottom: 5px;">INFO</span>
-                                        <div style="font-weight: 600; font-size: 13px; color: var(--text-primary); margin-bottom: 5px;">Workshop Metode Pembelajaran Modern</div>
-                                        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 5px;">Diselenggarakan pada 28 Juli 2026 di Auditorium Utama.</div>
-                                        <div style="font-size: 10px; color: var(--text-muted);">
+                                        <span class="badge badge-primary" style="font-size: 8px; margin-bottom: 4px; padding: 2px 6px;">INFO</span>
+                                        <div style="font-weight: 600; font-size: 12px; color: var(--text-primary); margin-bottom: 4px; line-height: 1.3;">Workshop Metode Pembelajaran Modern</div>
+                                        <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.4;">Diselenggarakan pada 28 Juli 2026 di Auditorium Utama.</div>
+                                        <div style="font-size: 9px; color: var(--text-muted);">
                                             <i class="far fa-clock"></i> Kemarin
                                         </div>
                                     </div>
@@ -426,35 +433,23 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
 
                             <!-- Announcement 3 -->
                             <div style="padding-bottom: 0;">
-                                <div style="display: flex; align-items: start; gap: 10px;">
-                                    <div style="width: 8px; height: 8px; background: var(--primary-green); border-radius: 50%; margin-top: 6px; flex-shrink: 0;"></div>
+                                <div style="display: flex; align-items: start; gap: 8px;">
+                                    <div style="width: 6px; height: 6px; background: var(--primary-green); border-radius: 50%; margin-top: 5px; flex-shrink: 0;"></div>
                                     <div style="flex: 1;">
-                                        <span class="badge badge-success" style="font-size: 9px; margin-bottom: 5px;">AGENDA</span>
-                                        <div style="font-weight: 600; font-size: 13px; color: var(--text-primary); margin-bottom: 5px;">Rapat Koordinasi Dosen</div>
-                                        <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 5px;">Evaluasi proses pembelajaran semester ganjil 2026/2027.</div>
-                                        <div style="font-size: 10px; color: var(--text-muted);">
+                                        <span class="badge badge-success" style="font-size: 8px; margin-bottom: 4px; padding: 2px 6px;">AGENDA</span>
+                                        <div style="font-weight: 600; font-size: 12px; color: var(--text-primary); margin-bottom: 4px; line-height: 1.3;">Rapat Koordinasi Dosen</div>
+                                        <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 4px; line-height: 1.4;">Evaluasi proses pembelajaran semester ganjil 2026/2027.</div>
+                                        <div style="font-size: 9px; color: var(--text-muted);">
                                             <i class="far fa-clock"></i> 2 hari lalu
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer" style="background: rgba(0, 102, 255, 0.05); border-top: 1px solid var(--border-color); padding: 12px 20px; text-align: center;">
-                            <a href="pengumuman.php" style="font-size: 12px; color: var(--primary-blue); text-decoration: none; font-weight: 600;">
-                                Lihat Semua Pengumuman <i class="fas fa-arrow-right" style="font-size: 10px;"></i>
+                        <div class="card-footer" style="background: rgba(0, 102, 255, 0.05); border-top: 1px solid var(--border-color); padding: 10px 15px; text-align: center;">
+                            <a href="pengumuman.php" style="font-size: 11px; color: var(--primary-blue); text-decoration: none; font-weight: 600;">
+                                Lihat Semua Pengumuman <i class="fas fa-arrow-right" style="font-size: 9px;"></i>
                             </a>
-                        </div>
-                    </div>
-
-                    <!-- Quick Stats -->
-                    <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: white; box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);">
-                        <div class="card-body" style="padding: 25px;">
-                            <div style="text-align: center;">
-                                <i class="fas fa-calendar-check" style="font-size: 32px; opacity: 0.9; margin-bottom: 15px;"></i>
-                                <h3 style="font-size: 32px; font-weight: 700; margin: 0;">14</h3>
-                                <p style="font-size: 13px; opacity: 0.9; margin: 5px 0 0 0;">Pertemuan Tersisa</p>
-                                <p style="font-size: 11px; opacity: 0.7; margin: 8px 0 0 0;">Semester Ganjil 2026/2027</p>
-                            </div>
                         </div>
                     </div>
                 </div>
