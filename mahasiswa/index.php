@@ -102,21 +102,37 @@ include __DIR__ . '/../includes/sidebar-mahasiswa.php';
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3); min-height: 180px;">
-                        <div class="card-body" style="padding: 25px;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;">
-                                <div style="flex: 1;">
-                                    <i class="fas fa-clipboard-check" style="font-size: 24px; opacity: 0.9; display: block; margin-bottom: 12px;"></i>
-                                    <div style="font-size: 14px; margin-bottom: 8px; opacity: 1; font-weight: 600; line-height: 1.4;">Status KRS</div>
-                                    <div style="font-size: 11px; opacity: 0.9; margin-bottom: 15px; line-height: 1.5;">Rencana akademik untuk Semester Ganjil 2026/2027 telah disetujui oleh pembimbing akademik Anda.</div>
-                                    <button class="btn btn-light btn-sm" style="color: #0066FF; font-weight: 600; border-radius: 8px; padding: 8px 16px;" onclick="window.location.href='krs.php'">
-                                        <i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Lihat KRS Detail
-                                    </button>
+                    <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);">
+                        <div class="card-body" style="padding: 20px;">
+                            <!-- Header with Icon and Badge -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-clipboard-check" style="font-size: 28px; opacity: 0.9;"></i>
+                                <span class="badge badge-success" style="font-size: 10px; padding: 6px 12px; font-weight: 700; border-radius: 6px;">✓ TERVERIFIKASI</span>
+                            </div>
+                            
+                            <!-- Title -->
+                            <h5 style="font-size: 16px; margin: 0 0 10px 0; font-weight: 700; line-height: 1.3;">Status Kartu Rencana Studi</h5>
+                            
+                            <!-- Description -->
+                            <p style="font-size: 11px; opacity: 0.9; margin: 0 0 15px 0; line-height: 1.5;">Rencana akademik untuk Semester Ganjil 2026/2027 telah disetujui oleh pembimbing akademik Anda.</p>
+                            
+                            <!-- Stats Row -->
+                            <div style="display: flex; gap: 15px; margin-bottom: 15px; padding: 12px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                                <div style="flex: 1; text-align: center;">
+                                    <div style="font-size: 20px; font-weight: 700; line-height: 1;"><?php echo $totalSKS; ?></div>
+                                    <div style="font-size: 9px; opacity: 0.8; margin-top: 3px;">SKS Diambil</div>
                                 </div>
-                                <div style="flex-shrink: 0;">
-                                    <span class="badge badge-success" style="font-size: 10px; padding: 6px 10px; font-weight: 700; border-radius: 6px; white-space: nowrap;">TERVERIFIKASI</span>
+                                <div style="border-left: 1px solid rgba(255,255,255,0.2);"></div>
+                                <div style="flex: 1; text-align: center;">
+                                    <div style="font-size: 20px; font-weight: 700; line-height: 1;"><?php echo count($krsAktif); ?></div>
+                                    <div style="font-size: 9px; opacity: 0.8; margin-top: 3px;">Mata Kuliah</div>
                                 </div>
                             </div>
+                            
+                            <!-- Action Button -->
+                            <button class="btn btn-light btn-block" style="color: #0066FF; font-weight: 600; border-radius: 8px; padding: 10px; font-size: 13px;" onclick="window.location.href='krs.php'">
+                                <i class="fas fa-eye" style="margin-right: 6px;"></i> Lihat KRS Detail
+                            </button>
                         </div>
                     </div>
                 </div>
