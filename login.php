@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// Disable cache
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/config/Database.class.php';
 
@@ -70,6 +76,15 @@ if (isset($_SESSION['flash_success'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+    // Force reload if coming from cache
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+    </script>
     
     <style>
         * {

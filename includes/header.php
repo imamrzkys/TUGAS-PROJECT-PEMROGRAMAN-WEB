@@ -21,6 +21,15 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/custom.css?v=<?php echo time(); ?>">
     
+    <script>
+    // Force reload jika page di-load dari cache
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+    </script>
+    
     <style>
         .brand-link {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
