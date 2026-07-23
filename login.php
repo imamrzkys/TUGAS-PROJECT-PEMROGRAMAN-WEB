@@ -95,7 +95,7 @@ if (isset($_SESSION['flash_success'])) {
         
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c44569 100%);
+            background: linear-gradient(135deg, #0066FF 0%, #0052CC 50%, #003D99 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -125,7 +125,7 @@ if (isset($_SESSION['flash_success'])) {
         }
         
         .login-header {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
             color: white;
             padding: 40px 30px;
             text-align: center;
@@ -175,7 +175,7 @@ if (isset($_SESSION['flash_success'])) {
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: #ff6b6b;
+            color: #0066FF;
             font-size: 18px;
         }
         
@@ -192,15 +192,15 @@ if (isset($_SESSION['flash_success'])) {
         
         .form-control:focus {
             outline: none;
-            border-color: #ff6b6b;
+            border-color: #0066FF;
             background: white;
-            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
         }
         
         .btn-login {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%);
             color: white;
             border: none;
             border-radius: 12px;
@@ -208,13 +208,13 @@ if (isset($_SESSION['flash_success'])) {
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
             margin-top: 10px;
         }
         
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
         }
         
         .btn-login:active {
@@ -266,7 +266,7 @@ if (isset($_SESSION['flash_success'])) {
         }
         
         .demo-item strong {
-            color: #ff6b6b;
+            color: #0066FF;
             display: block;
             margin-bottom: 5px;
         }
@@ -295,7 +295,7 @@ if (isset($_SESSION['flash_success'])) {
         
         .university-info strong {
             display: block;
-            color: #ff6b6b;
+            color: #0066FF;
             font-size: 14px;
             margin-bottom: 5px;
         }
