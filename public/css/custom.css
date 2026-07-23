@@ -146,6 +146,30 @@ body {
     .main-header {
         margin-left: 270px !important;
     }
+    
+    .main-footer {
+        margin-left: 270px !important;
+    }
+}
+
+/* Footer styling */
+.main-footer {
+    padding: 15px;
+    background: var(--bg-white);
+    border-top: 1px solid var(--border-color);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.main-footer a {
+    color: var(--primary-blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.main-footer a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
 }
 
 .brand-link {
