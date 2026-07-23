@@ -1,21 +1,27 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-0">
     <!-- Brand Logo -->
-    <a href="<?php echo BASE_URL; ?>/admin/index.php" class="brand-link text-center">
-        <span class="brand-text font-weight-bold"><?php echo APP_NAME; ?></span>
+    <a href="<?php echo BASE_URL; ?>/admin/index.php" class="brand-link">
+        <div class="brand-image" style="margin-left: 5px;">
+            <i class="fas fa-graduation-cap" style="font-size: 24px; color: white;"></i>
+        </div>
+        <span class="brand-text">
+            SIAKAD
+            <span class="brand-subtext">Academic System</span>
+        </span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="user-panel">
             <div class="image">
-                <i class="fas fa-user-shield fa-2x text-white"></i>
+                <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($_SESSION['user_nama']); ?>&background=0066FF&color=fff&bold=true" alt="User Avatar" style="width: 45px; height: 45px; border-radius: 10px; border: 2px solid var(--primary-blue);">
             </div>
             <div class="info">
-                <a href="<?php echo BASE_URL; ?>/profile.php" class="d-block">
+                <a href="#">
                     <?php echo $_SESSION['user_nama']; ?>
-                    <br><small>Administrator</small>
+                    <small>System Administrator</small>
                 </a>
             </div>
         </div>
@@ -26,47 +32,56 @@
                 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/index.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-th-large"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
 
-                <li class="nav-header">MANAJEMEN USER</li>
+                <li class="nav-header">USER MANAGEMENT</li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/mahasiswa.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'mahasiswa.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-user-graduate"></i>
-                        <p>Data Mahasiswa</p>
+                        <p>User Management</p>
+                    </a>
+                </li>
+
+                <li class="nav-header">ACADEMIC MANAGEMENT</li>
+
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>/admin/matakuliah.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'matakuliah.php' ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-book-open"></i>
+                        <p>Academic Management</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/dosen.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'dosen.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-chalkboard-teacher"></i>
-                        <p>Data Dosen</p>
-                    </a>
-                </li>
-
-                <li class="nav-header">MANAJEMEN AKADEMIK</li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/matakuliah.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'matakuliah.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-book-open"></i>
-                        <p>Mata Kuliah</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="<?php echo BASE_URL; ?>/admin/kelas.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'kelas.php' ? 'active' : ''; ?>">
-                        <i class="nav-icon fas fa-school"></i>
-                        <p>Kelas</p>
+                        <i class="nav-icon fas fa-dollar-sign"></i>
+                        <p>Finance</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/pengumuman.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pengumuman.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-bullhorn"></i>
-                        <p>Pengumuman</p>
+                        <p>Announcements</p>
+                    </a>
+                </li>
+
+                <li class="nav-header">SETTINGS</li>
+
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>/change-password.php" class="nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="<?php echo BASE_URL; ?>/logout.php" class="nav-link" style="color: var(--primary-red) !important;">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Logout</p>
                     </a>
                 </li>
 
