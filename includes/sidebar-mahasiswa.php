@@ -10,7 +10,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <i class="fas fa-user-graduate fa-2x text-white"></i>
+                <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($_SESSION['user_nama']); ?>&background=06D6A0&color=fff&bold=true&size=128" 
+                     class="img-circle elevation-2" 
+                     alt="Mahasiswa Avatar" 
+                     style="width: 40px; height: 40px;">
             </div>
             <div class="info">
                 <a href="<?php echo BASE_URL; ?>/profile.php" class="d-block">
