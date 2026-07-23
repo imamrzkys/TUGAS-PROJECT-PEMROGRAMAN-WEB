@@ -10,14 +10,18 @@
 uploads/*
 !uploads/.gitkeep
 
-# Config
+# Config (sensitive data)
 config/database.php
 
-# Laporan (Keep local only)
-LAPORAN*.md
-SUMMARY.md
-INSTALASI.md
-GITHUB_COMMIT_GUIDE.md
+# Laporan (Keep local only - tidak di-push ke GitHub)
+LAPORAN.md
+
+# Temporary files
+*-cache.php
+fix-*.php
+convert-*.php
+test-*.php
+*.bat
 
 # IDE
 .vscode/
@@ -28,3 +32,10 @@ GITHUB_COMMIT_GUIDE.md
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Node modules (jika ada)
+node_modules/
+
+# Composer
+vendor/
