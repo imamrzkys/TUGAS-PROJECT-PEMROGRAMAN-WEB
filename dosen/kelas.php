@@ -58,7 +58,7 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                             <?php foreach ($kelasList as $kelas): ?>
                                 <?php
                                 // Get mahasiswa di kelas ini
-                                $mahasiswaList = $krsModel->getMahasiswaByKelas($kelas['id']);
+                                $mahasiswaList = $krsModel->getMahasiswaKelas($kelas['id']);
                                 ?>
                                 <div class="col-md-6">
                                     <div class="card card-outline card-primary">
