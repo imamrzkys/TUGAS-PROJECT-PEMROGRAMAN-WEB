@@ -361,7 +361,7 @@ if (isset($_SESSION['flash_success'])) {
             </div>
             
             <p class="footer-text">
-                © 2024 SIAKAD. Tugas Pemrograman Web.
+                © 2026 SIAKAD. Tugas Pemrograman Web.
             </p>
         </div>
     </div>

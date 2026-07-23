@@ -10,7 +10,7 @@ $user = getCurrentUser();
 
 $kelasModel = new Kelas();
 
-$tahunAjaranAktif = '2023/2024';
+$tahunAjaranAktif = '2026/2027';
 $semesterAktif = 'ganjil';
 
 // Get kelas yang diajar

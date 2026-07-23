@@ -14,7 +14,7 @@ $user = getCurrentUser();
 $krsModel = new KRS();
 $nilaiModel = new Nilai();
 
-$tahunAjaranAktif = '2023/2024';
+$tahunAjaranAktif = '2026/2027';
 $semesterAktif = 'ganjil';
 
 $krsAktif = $krsModel->getKRSMahasiswa($user['id'], $tahunAjaranAktif, $semesterAktif);

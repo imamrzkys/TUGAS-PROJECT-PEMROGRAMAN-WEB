@@ -9,7 +9,7 @@ $pageTitle = 'Jadwal Kuliah';
 $user = getCurrentUser();
 
 $krsModel = new KRS();
-$tahunAjaranAktif = '2023/2024';
+$tahunAjaranAktif = '2026/2027';
 $semesterAktif = 'ganjil';
 $jadwal = $krsModel->getKRSMahasiswa($user['id'], $tahunAjaranAktif, $semesterAktif);
 

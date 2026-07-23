@@ -52,32 +52,32 @@ INSERT INTO mata_kuliah (kode_matkul, nama_matkul, sks, semester, jenis, deskrip
 -- DATA KELAS
 -- ============================================================
 INSERT INTO kelas (matakuliah_id, dosen_id, kode_kelas, ruangan, hari, jam_mulai, jam_selesai, kuota, tahun_ajaran, semester) VALUES
--- Semester Ganjil 2023/2024
-(1, 2, 'A', 'Lab 101', 'Senin', '08:00:00', '10:30:00', 40, '2023/2024', 'ganjil'),
-(2, 3, 'A', 'R-201', 'Selasa', '08:00:00', '10:30:00', 40, '2023/2024', 'ganjil'),
-(3, 2, 'A', 'Lab 102', 'Rabu', '13:00:00', '16:30:00', 35, '2023/2024', 'ganjil'),
-(8, 2, 'A', 'Lab 201', 'Kamis', '08:00:00', '10:30:00', 40, '2023/2024', 'ganjil'),
-(9, 3, 'A', 'R-301', 'Jumat', '08:00:00', '10:30:00', 40, '2023/2024', 'ganjil'),
-(10, 2, 'B', 'R-202', 'Senin', '13:00:00', '15:30:00', 40, '2023/2024', 'ganjil');
+-- Semester Ganjil 2026/2027
+(1, 2, 'A', 'Lab 101', 'Senin', '08:00:00', '10:30:00', 40, '2026/2027', 'ganjil'),
+(2, 3, 'A', 'R-201', 'Selasa', '08:00:00', '10:30:00', 40, '2026/2027', 'ganjil'),
+(3, 2, 'A', 'Lab 102', 'Rabu', '13:00:00', '16:30:00', 35, '2026/2027', 'ganjil'),
+(8, 2, 'A', 'Lab 201', 'Kamis', '08:00:00', '10:30:00', 40, '2026/2027', 'ganjil'),
+(9, 3, 'A', 'R-301', 'Jumat', '08:00:00', '10:30:00', 40, '2026/2027', 'ganjil'),
+(10, 2, 'B', 'R-202', 'Senin', '13:00:00', '15:30:00', 40, '2026/2027', 'ganjil');
 
 -- ============================================================
 -- DATA KRS
 -- ============================================================
 INSERT INTO krs (mahasiswa_id, kelas_id, tahun_ajaran, semester, status) VALUES
 -- Mahasiswa 1 (Andi - Semester 3)
-(5, 4, '2023/2024', 'ganjil', 'aktif'),
-(5, 5, '2023/2024', 'ganjil', 'aktif'),
-(5, 6, '2023/2024', 'ganjil', 'aktif'),
+(5, 4, '2026/2027', 'ganjil', 'aktif'),
+(5, 5, '2026/2027', 'ganjil', 'aktif'),
+(5, 6, '2026/2027', 'ganjil', 'aktif'),
 
 -- Mahasiswa 2 (Dewi - Semester 3)
-(6, 4, '2023/2024', 'ganjil', 'aktif'),
-(6, 5, '2023/2024', 'ganjil', 'aktif'),
-(6, 6, '2023/2024', 'ganjil', 'aktif'),
+(6, 4, '2026/2027', 'ganjil', 'aktif'),
+(6, 5, '2026/2027', 'ganjil', 'aktif'),
+(6, 6, '2026/2027', 'ganjil', 'aktif'),
 
 -- Mahasiswa 3 (Rizki - Semester 1)
-(7, 1, '2023/2024', 'ganjil', 'aktif'),
-(7, 2, '2023/2024', 'ganjil', 'aktif'),
-(7, 3, '2023/2024', 'ganjil', 'aktif');
+(7, 1, '2026/2027', 'ganjil', 'aktif'),
+(7, 2, '2026/2027', 'ganjil', 'aktif'),
+(7, 3, '2026/2027', 'ganjil', 'aktif');
 
 -- ============================================================
 -- DATA NILAI
@@ -111,18 +111,18 @@ INSERT INTO pengumuman (judul, konten, kategori, pembuat_id) VALUES
 -- DATA PEMBAYARAN
 -- ============================================================
 INSERT INTO pembayaran (mahasiswa_id, jenis, semester, tahun_ajaran, jumlah, status, batas_waktu, nomor_va) VALUES
-(5, 'UKT', 'ganjil', '2023/2024', 5000000, 'lunas', '2023-08-31', 'VA001234567890'),
-(6, 'UKT', 'ganjil', '2023/2024', 5000000, 'lunas', '2023-08-31', 'VA001234567891'),
-(7, 'UKT', 'ganjil', '2023/2024', 5000000, 'menunggu', '2023-08-31', 'VA001234567892'),
-(5, 'UKT', 'genap', '2023/2024', 5000000, 'menunggu', '2024-02-28', 'VA001234567893');
+(5, 'UKT', 'ganjil', '2026/2027', 5000000, 'lunas', '2026-08-31', 'VA001234567890'),
+(6, 'UKT', 'ganjil', '2026/2027', 5000000, 'lunas', '2026-08-31', 'VA001234567891'),
+(7, 'UKT', 'ganjil', '2026/2027', 5000000, 'menunggu', '2026-08-31', 'VA001234567892'),
+(5, 'UKT', 'genap', '2026/2027', 5000000, 'menunggu', '2027-02-28', 'VA001234567893');
 
 -- ============================================================
 -- DATA TUGAS
 -- ============================================================
 INSERT INTO tugas (kelas_id, judul, deskripsi, batas_waktu, bobot_nilai, dipublikasi) VALUES
-(4, 'Tugas 1: HTML & CSS Dasar', 'Buat halaman web sederhana dengan HTML dan CSS', '2023-10-15 23:59:00', 100, 1),
-(4, 'Tugas 2: JavaScript Interaktif', 'Buat aplikasi web interaktif menggunakan JavaScript', '2023-11-01 23:59:00', 100, 1),
-(5, 'Tugas 1: Analisis Topologi Jaringan', 'Analisis topologi jaringan pada studi kasus', '2023-10-20 23:59:00', 100, 1);
+(4, 'Tugas 1: HTML & CSS Dasar', 'Buat halaman web sederhana dengan HTML dan CSS', '2026-10-15 23:59:00', 100, 1),
+(4, 'Tugas 2: JavaScript Interaktif', 'Buat aplikasi web interaktif menggunakan JavaScript', '2026-11-01 23:59:00', 100, 1),
+(5, 'Tugas 1: Analisis Topologi Jaringan', 'Analisis topologi jaringan pada studi kasus', '2026-10-20 23:59:00', 100, 1);
 
 -- ============================================================
 -- DATA MATERI
@@ -139,17 +139,17 @@ INSERT INTO materi (kelas_id, judul, deskripsi, pertemuan_ke, dipublikasi) VALUE
 -- ============================================================
 INSERT INTO presensi (kelas_id, mahasiswa_id, pertemuan_ke, tanggal, status, keterangan) VALUES
 -- Pemrograman Web - Pertemuan 1
-(4, 5, 1, '2023-09-07', 'hadir', 'Tepat waktu'),
-(4, 6, 1, '2023-09-07', 'hadir', 'Tepat waktu'),
+(4, 5, 1, '2026-09-07', 'hadir', 'Tepat waktu'),
+(4, 6, 1, '2026-09-07', 'hadir', 'Tepat waktu'),
 
 -- Pemrograman Web - Pertemuan 2
-(4, 5, 2, '2023-09-14', 'hadir', 'Tepat waktu'),
-(4, 6, 2, '2023-09-14', 'hadir', 'Tepat waktu'),
+(4, 5, 2, '2026-09-14', 'hadir', 'Tepat waktu'),
+(4, 6, 2, '2026-09-14', 'hadir', 'Tepat waktu'),
 
 -- Pemrograman Web - Pertemuan 3
-(4, 5, 3, '2023-09-21', 'hadir', 'Tepat waktu'),
-(4, 6, 3, '2023-09-21', 'izin', 'Sakit'),
+(4, 5, 3, '2026-09-21', 'hadir', 'Tepat waktu'),
+(4, 6, 3, '2026-09-21', 'izin', 'Sakit'),
 
 -- Jaringan Komputer - Pertemuan 1
-(5, 5, 1, '2023-09-08', 'hadir', 'Tepat waktu'),
-(5, 6, 1, '2023-09-08', 'hadir', 'Tepat waktu');
+(5, 5, 1, '2026-09-08', 'hadir', 'Tepat waktu'),
+(5, 6, 1, '2026-09-08', 'hadir', 'Tepat waktu');

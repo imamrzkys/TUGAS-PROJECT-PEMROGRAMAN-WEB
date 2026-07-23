@@ -12,7 +12,7 @@ $user = getCurrentUser();
 $krsModel = new KRS();
 $kelasModel = new Kelas();
 
-$tahunAjaranAktif = '2023/2024';
+$tahunAjaranAktif = '2026/2027';
 $semesterAktif = 'ganjil';
 
 // Handle tambah KRS

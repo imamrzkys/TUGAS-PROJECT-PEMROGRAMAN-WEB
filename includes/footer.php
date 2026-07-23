@@ -2,7 +2,7 @@
 <!-- /.content-wrapper -->
 
 <footer class="main-footer">
-    <strong>Copyright &copy; 2024 <a href="#"><?php echo APP_NAME; ?></a>.</strong>
+    <strong>Copyright &copy; 2026 <a href="#"><?php echo APP_NAME; ?></a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> <?php echo APP_VERSION; ?>
