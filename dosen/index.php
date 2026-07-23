@@ -54,50 +54,40 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                 </div>
             <?php endif; ?>
 
-            <!-- Profile Card -->
+            <!-- Profile & Calendar Row -->
             <div class="row mb-4">
-                <div class="col-lg-8">
-                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-                        <div class="card-body" style="padding: 30px;">
+                <!-- Profile Card -->
+                <div class="col-xl-7 col-lg-12 mb-4 mb-xl-0">
+                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); height: 100%;">
+                        <div class="card-body" style="padding: 25px;">
                             <div class="row align-items-center">
-                                <div class="col-md-2">
+                                <div class="col-md-3 col-sm-12 text-center text-md-left mb-3 mb-md-0">
                                     <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($user['nama_lengkap']); ?>&background=0066FF&color=fff&bold=true&size=200" 
                                          alt="Profile" 
-                                         style="width: 80px; height: 80px; border-radius: 12px; border: 3px solid #0066FF;">
+                                         class="img-fluid" 
+                                         style="width: 90px; height: 90px; border-radius: 16px; border: 3px solid #0066FF;">
                                 </div>
-                                <div class="col-md-7">
-                                    <h3 style="margin: 0; font-size: 24px; font-weight: 700; color: var(--text-primary);">
+                                <div class="col-md-9 col-sm-12">
+                                    <h4 style="margin: 0 0 8px 0; font-size: 22px; font-weight: 700; color: var(--text-primary);">
                                         <?php echo $user['nama_lengkap']; ?>
-                                        <span class="badge badge-success ml-2" style="font-size: 11px; vertical-align: middle;">DOSEN AKTIF</span>
-                                    </h3>
-                                    <p style="margin: 5px 0; color: var(--text-secondary);">
-                                        <strong>NIP: <?php echo $user['nim']; ?></strong> | Dosen Tetap • Fakultas Teknik Informatika
+                                        <span class="badge badge-success ml-2" style="font-size: 10px; vertical-align: middle;">DOSEN AKTIF</span>
+                                    </h4>
+                                    <p style="margin: 0 0 15px 0; color: var(--text-secondary); font-size: 13px;">
+                                        <strong>NIP: <?php echo $user['nim']; ?></strong> | Dosen Tetap • Teknik Informatika
                                     </p>
-                                    <div class="mt-3">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <small class="text-muted">Kelas Diampu</small>
-                                                <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);"><?php echo $totalKelas; ?></div>
-                                            </div>
-                                            <div class="col-auto border-left">
-                                                <small class="text-muted">Total Mahasiswa</small>
-                                                <div style="font-size: 24px; font-weight: 700; color: var(--primary-green);"><?php echo $totalMahasiswa; ?></div>
-                                            </div>
-                                            <div class="col-auto border-left">
-                                                <small class="text-muted">Tahun Mengajar</small>
-                                                <div style="font-size: 24px; font-weight: 700; color: var(--primary-orange);">5+</div>
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <small class="text-muted" style="font-size: 11px;">Kelas Diampu</small>
+                                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue); line-height: 1.2;"><?php echo $totalKelas; ?></div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 text-right">
-                                    <div style="margin-bottom: 15px;">
-                                        <button class="btn btn-sm" style="background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600;" onclick="window.location.href='../change-password.php'">
-                                            <i class="fas fa-user-edit"></i> Edit Profil
-                                        </button>
-                                    </div>
-                                    <div style="font-size: 11px; color: var(--text-muted);">
-                                        Semester <?php echo ucfirst($semesterAktif); ?> • <?php echo $tahunAjaranAktif; ?>
+                                        <div class="col-4">
+                                            <small class="text-muted" style="font-size: 11px;">Total Mahasiswa</small>
+                                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-green); line-height: 1.2;"><?php echo $totalMahasiswa; ?></div>
+                                        </div>
+                                        <div class="col-4">
+                                            <small class="text-muted" style="font-size: 11px;">Tahun Mengajar</small>
+                                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-orange); line-height: 1.2;">5+</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,9 +95,9 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                     </div>
                 </div>
 
-                <div class="col-lg-4">
-                    <!-- Mini Calendar -->
-                    <div class="card mb-3" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                <!-- Calendar Card -->
+                <div class="col-xl-5 col-lg-12">
+                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); height: 100%;">
                         <div class="card-body" style="padding: 20px;">
                             <?php
                             // Get current date info
@@ -139,35 +129,35 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                             ?>
                             
                             <!-- Calendar Header -->
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                                <h6 style="font-weight: 700; margin: 0; color: var(--text-primary);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h6 style="font-weight: 700; margin: 0; color: var(--text-primary); font-size: 14px;">
                                     <i class="far fa-calendar" style="color: var(--primary-blue);"></i> <?php echo $month_name; ?> <?php echo $current_year; ?>
                                 </h6>
                                 <div>
-                                    <button style="border: none; background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); width: 28px; height: 28px; border-radius: 6px; margin-right: 5px; cursor: pointer;">
-                                        <i class="fas fa-chevron-left" style="font-size: 12px;"></i>
+                                    <button style="border: none; background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); width: 30px; height: 30px; border-radius: 8px; margin-right: 5px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(0, 102, 255, 0.2)'" onmouseout="this.style.background='rgba(0, 102, 255, 0.1)'">
+                                        <i class="fas fa-chevron-left" style="font-size: 11px;"></i>
                                     </button>
-                                    <button style="border: none; background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); width: 28px; height: 28px; border-radius: 6px; cursor: pointer;">
-                                        <i class="fas fa-chevron-right" style="font-size: 12px;"></i>
+                                    <button style="border: none; background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); width: 30px; height: 30px; border-radius: 8px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(0, 102, 255, 0.2)'" onmouseout="this.style.background='rgba(0, 102, 255, 0.1)'">
+                                        <i class="fas fa-chevron-right" style="font-size: 11px;"></i>
                                     </button>
                                 </div>
                             </div>
                             
                             <!-- Calendar Grid -->
-                            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;">
+                            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 15px;">
                                 <!-- Day Headers -->
                                 <?php 
                                 $day_headers = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
                                 foreach ($day_headers as $day_header): 
                                 ?>
-                                    <div style="text-align: center; font-size: 11px; font-weight: 600; color: var(--text-muted); padding: 8px 0;">
+                                    <div style="text-align: center; font-size: 10px; font-weight: 600; color: var(--text-muted); padding: 6px 0;">
                                         <?php echo $day_header; ?>
                                     </div>
                                 <?php endforeach; ?>
                                 
                                 <!-- Empty cells before first day -->
                                 <?php for ($i = 1; $i < $first_day; $i++): ?>
-                                    <div style="padding: 8px;"></div>
+                                    <div style="padding: 6px;"></div>
                                 <?php endfor; ?>
                                 
                                 <!-- Calendar days -->
@@ -177,10 +167,10 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                                     $day_of_week = date('N', strtotime("$current_year-$current_month-$day"));
                                     $is_weekend = ($day_of_week >= 6);
                                 ?>
-                                    <div style="position: relative; text-align: center; padding: 8px; border-radius: 8px; 
+                                    <div style="position: relative; text-align: center; padding: 10px 6px; border-radius: 8px; 
                                         background: <?php echo $is_today ? 'linear-gradient(135deg, #0066FF 0%, #0052CC 100%)' : ($has_class ? 'rgba(6, 214, 160, 0.1)' : ($is_weekend ? 'rgba(0,0,0,0.02)' : 'transparent')); ?>; 
                                         color: <?php echo $is_today ? 'white' : 'var(--text-primary)'; ?>; 
-                                        font-size: 13px; 
+                                        font-size: 12px; 
                                         font-weight: <?php echo $is_today ? '700' : '500'; ?>; 
                                         cursor: pointer;
                                         transition: all 0.2s;"
@@ -188,40 +178,22 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                                         onmouseout="this.style.background='<?php echo $is_today ? 'linear-gradient(135deg, #0066FF 0%, #0052CC 100%)' : ($has_class ? 'rgba(6, 214, 160, 0.1)' : ($is_weekend ? 'rgba(0,0,0,0.02)' : 'transparent')); ?>'">
                                         <?php echo $day; ?>
                                         <?php if ($has_class && !$is_today): ?>
-                                            <div style="width: 4px; height: 4px; background: var(--primary-green); border-radius: 50%; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);"></div>
+                                            <div style="width: 4px; height: 4px; background: var(--primary-green); border-radius: 50%; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%);"></div>
                                         <?php endif; ?>
                                     </div>
                                 <?php endfor; ?>
                             </div>
                             
                             <!-- Calendar Legend -->
-                            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
-                                <div style="display: flex; gap: 15px;">
-                                    <div style="display: flex; align-items: center; gap: 5px;">
-                                        <div style="width: 12px; height: 12px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); border-radius: 4px;"></div>
-                                        <span style="font-size: 11px; color: var(--text-muted);">Hari Ini</span>
-                                    </div>
-                                    <div style="display: flex; align-items: center; gap: 5px;">
-                                        <div style="width: 4px; height: 4px; background: var(--primary-green); border-radius: 50%;"></div>
-                                        <span style="font-size: 11px; color: var(--text-muted);">Ada Kelas</span>
-                                    </div>
+                            <div style="padding-top: 12px; border-top: 1px solid var(--border-color); display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 14px; height: 14px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); border-radius: 4px;"></div>
+                                    <span style="font-size: 10px; color: var(--text-muted); font-weight: 500;">Hari Ini</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);">
-                        <div class="card-body" style="padding: 25px;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <div>
-                                    <i class="fas fa-chalkboard-teacher" style="font-size: 20px; opacity: 0.8;"></i>
-                                    <div style="font-size: 13px; margin-top: 10px; margin-bottom: 5px; opacity: 0.9;">Jadwal Mengajar Hari Ini</div>
-                                    <div style="font-size: 11px; opacity: 0.8; margin-bottom: 15px;">Anda memiliki <?php echo min(2, $totalKelas); ?> sesi perkuliahan yang dijadwalkan untuk hari ini.</div>
-                                    <button class="btn btn-light btn-sm" style="color: #0066FF; font-weight: 600;" onclick="window.location.href='jadwal.php'">
-                                        Lihat Jadwal Lengkap
-                                    </button>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <div style="width: 4px; height: 4px; background: var(--primary-green); border-radius: 50%;"></div>
+                                    <span style="font-size: 10px; color: var(--text-muted); font-weight: 500;">Ada Kelas</span>
                                 </div>
-                                <span class="badge badge-light" style="color: #0066FF; font-weight: 700;"><?php echo min(2, $totalKelas); ?></span>
                             </div>
                         </div>
                     </div>
@@ -230,46 +202,46 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
 
             <!-- Quick Action Buttons -->
             <div class="row mb-4">
-                <div class="col-lg-12">
+                <div class="col-12">
                     <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
-                        <div class="card-body" style="padding: 25px;">
-                            <h5 style="font-weight: 700; margin-bottom: 20px; color: var(--text-primary);">
+                        <div class="card-body" style="padding: 20px;">
+                            <h6 style="font-weight: 700; margin-bottom: 15px; color: var(--text-primary); font-size: 15px;">
                                 <i class="fas fa-bolt" style="color: var(--primary-orange);"></i> Aksi Cepat
-                            </h5>
+                            </h6>
                             <div class="row">
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                                     <a href="nilai.php" style="text-decoration: none;">
-                                        <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-blue)'" onmouseout="this.style.borderColor='transparent'">
-                                            <i class="fas fa-star" style="font-size: 32px; color: var(--primary-blue); margin-bottom: 12px;"></i>
-                                            <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 5px;">Input Nilai</div>
-                                            <div style="font-size: 11px; color: var(--text-muted);">Kelola nilai mahasiswa</div>
+                                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-blue)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                                            <i class="fas fa-star" style="font-size: 28px; color: var(--primary-blue); margin-bottom: 10px;"></i>
+                                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Input Nilai</div>
+                                            <div style="font-size: 10px; color: var(--text-muted);">Kelola nilai mahasiswa</div>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                                     <a href="presensi.php" style="text-decoration: none;">
-                                        <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(6, 214, 160, 0.1) 0%, rgba(6, 214, 160, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-green)'" onmouseout="this.style.borderColor='transparent'">
-                                            <i class="fas fa-check-circle" style="font-size: 32px; color: var(--primary-green); margin-bottom: 12px;"></i>
-                                            <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 5px;">Presensi</div>
-                                            <div style="font-size: 11px; color: var(--text-muted);">Rekap kehadiran</div>
+                                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(6, 214, 160, 0.1) 0%, rgba(6, 214, 160, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-green)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                                            <i class="fas fa-check-circle" style="font-size: 28px; color: var(--primary-green); margin-bottom: 10px;"></i>
+                                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Presensi</div>
+                                            <div style="font-size: 10px; color: var(--text-muted);">Rekap kehadiran</div>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                                     <a href="materi.php" style="text-decoration: none;">
-                                        <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-orange)'" onmouseout="this.style.borderColor='transparent'">
-                                            <i class="fas fa-book" style="font-size: 32px; color: var(--primary-orange); margin-bottom: 12px;"></i>
-                                            <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 5px;">Materi Kuliah</div>
-                                            <div style="font-size: 11px; color: var(--text-muted);">Upload & kelola materi</div>
+                                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-orange)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                                            <i class="fas fa-book" style="font-size: 28px; color: var(--primary-orange); margin-bottom: 10px;"></i>
+                                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Materi Kuliah</div>
+                                            <div style="font-size: 10px; color: var(--text-muted);">Upload & kelola materi</div>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6 mb-3">
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-3">
                                     <a href="tugas.php" style="text-decoration: none;">
-                                        <div style="text-align: center; padding: 25px; background: linear-gradient(135deg, rgba(230, 57, 70, 0.1) 0%, rgba(230, 57, 70, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-red)'" onmouseout="this.style.borderColor='transparent'">
-                                            <i class="fas fa-tasks" style="font-size: 32px; color: var(--primary-red); margin-bottom: 12px;"></i>
-                                            <div style="font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 5px;">Tugas</div>
-                                            <div style="font-size: 11px; color: var(--text-muted);">Kelola tugas mahasiswa</div>
+                                        <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, rgba(230, 57, 70, 0.1) 0%, rgba(230, 57, 70, 0.05) 100%); border-radius: 12px; transition: all 0.3s; border: 2px solid transparent;" onmouseover="this.style.borderColor='var(--primary-red)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                                            <i class="fas fa-tasks" style="font-size: 28px; color: var(--primary-red); margin-bottom: 10px;"></i>
+                                            <div style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px;">Tugas</div>
+                                            <div style="font-size: 10px; color: var(--text-muted);">Kelola tugas mahasiswa</div>
                                         </div>
                                     </a>
                                 </div>
@@ -279,10 +251,10 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                 </div>
             </div>
 
-            <!-- Content Row -->
+            <!-- Main Content Row: Table + Sidebar -->
             <div class="row">
-                <!-- Kelas yang Diampu -->
-                <div class="col-lg-8 mb-4">
+                <!-- Kelas yang Diampu Table -->
+                <div class="col-xl-8 col-lg-12 mb-4">
                     <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
                         <div class="card-header" style="background: white; border-bottom: 2px solid var(--border-color); padding: 20px 25px;">
                             <h5 style="font-weight: 700; margin: 0; color: var(--text-primary);">
@@ -371,7 +343,7 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                 </div>
 
                 <!-- Sidebar Kanan -->
-                <div class="col-lg-4 mb-4">
+                <div class="col-xl-4 col-lg-12 mb-4">
                     <!-- Statistik Performa -->
                     <div class="card mb-4" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
                         <div class="card-body" style="padding: 25px;">
@@ -522,42 +494,38 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                                     foreach ($hari_list as $hari): 
                                         $is_today = ($hari == 'Kamis'); // Hari ini Kamis
                                     ?>
-                                        <div class="col-lg-2-4 col-md-4 col-sm-6 mb-4" style="flex: 0 0 20%; max-width: 20%;">
-                                            <div style="padding: 20px; background: <?php echo $is_today ? 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%)' : 'rgba(0,0,0,0.02)'; ?>; border-radius: 12px; border-left: 4px solid <?php echo $is_today ? 'var(--primary-blue)' : 'var(--border-color)'; ?>; min-height: 200px;">
-                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                                    <h6 style="font-weight: 700; margin: 0; color: var(--text-primary); font-size: 14px;"><?php echo $hari; ?></h6>
+                                        <div class="col-xl col-lg-2-4 col-md-4 col-sm-6 mb-3">
+                                            <div style="padding: 16px; background: <?php echo $is_today ? 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%)' : 'rgba(0,0,0,0.02)'; ?>; border-radius: 12px; border-left: 4px solid <?php echo $is_today ? 'var(--primary-blue)' : 'var(--border-color)'; ?>; min-height: 180px; height: 100%;">
+                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                                    <h6 style="font-weight: 700; margin: 0; color: var(--text-primary); font-size: 13px;"><?php echo $hari; ?></h6>
                                                     <?php if ($is_today): ?>
-                                                        <span class="badge badge-primary" style="font-size: 9px;">HARI INI</span>
+                                                        <span class="badge badge-primary" style="font-size: 8px; padding: 3px 8px;">HARI INI</span>
                                                     <?php endif; ?>
                                                 </div>
                                                 
                                                 <?php if (isset($kelas_per_hari[$hari]) && count($kelas_per_hari[$hari]) > 0): ?>
                                                     <?php foreach ($kelas_per_hari[$hari] as $kelas): ?>
-                                                        <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                                                            <div style="font-size: 11px; color: var(--primary-blue); font-weight: 700; margin-bottom: 5px;">
+                                                        <div style="background: white; padding: 10px; border-radius: 8px; margin-bottom: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                                            <div style="font-size: 10px; color: var(--primary-blue); font-weight: 700; margin-bottom: 4px;">
                                                                 <?php echo $kelas['kode_matkul']; ?>
                                                             </div>
-                                                            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.3;">
-                                                                <?php echo strlen($kelas['nama_matkul']) > 30 ? substr($kelas['nama_matkul'], 0, 30) . '...' : $kelas['nama_matkul']; ?>
+                                                            <div style="font-size: 11px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; line-height: 1.3;">
+                                                                <?php echo strlen($kelas['nama_matkul']) > 25 ? substr($kelas['nama_matkul'], 0, 25) . '...' : $kelas['nama_matkul']; ?>
                                                             </div>
-                                                            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
-                                                                <i class="far fa-clock" style="color: var(--primary-green); margin-right: 4px;"></i>
+                                                            <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 3px;">
+                                                                <i class="far fa-clock" style="color: var(--primary-green); margin-right: 3px;"></i>
                                                                 <?php echo substr($kelas['jam_mulai'], 0, 5); ?>-<?php echo substr($kelas['jam_selesai'], 0, 5); ?>
                                                             </div>
-                                                            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
-                                                                <i class="fas fa-door-open" style="color: var(--primary-orange); margin-right: 4px;"></i>
+                                                            <div style="font-size: 10px; color: var(--text-muted);">
+                                                                <i class="fas fa-door-open" style="color: var(--primary-orange); margin-right: 3px;"></i>
                                                                 <?php echo $kelas['ruangan']; ?>
-                                                            </div>
-                                                            <div style="font-size: 11px; color: var(--text-muted);">
-                                                                <i class="fas fa-users" style="color: var(--primary-green); margin-right: 4px;"></i>
-                                                                <?php echo $kelas['jumlah_mahasiswa']; ?> Mahasiswa
                                                             </div>
                                                         </div>
                                                     <?php endforeach; ?>
                                                 <?php else: ?>
-                                                    <div style="text-align: center; padding: 30px 10px; opacity: 0.5;">
-                                                        <i class="fas fa-coffee" style="font-size: 32px; color: var(--text-muted); margin-bottom: 10px;"></i>
-                                                        <p style="font-size: 11px; color: var(--text-muted); margin: 0;">Tidak ada jadwal</p>
+                                                    <div style="text-align: center; padding: 25px 10px; opacity: 0.5;">
+                                                        <i class="fas fa-coffee" style="font-size: 28px; color: var(--text-muted); margin-bottom: 8px;"></i>
+                                                        <p style="font-size: 10px; color: var(--text-muted); margin: 0;">Tidak ada jadwal</p>
                                                     </div>
                                                 <?php endif; ?>
                                             </div>
