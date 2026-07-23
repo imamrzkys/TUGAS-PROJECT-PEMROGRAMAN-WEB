@@ -20,12 +20,22 @@ $totalDosen = $userModel->count(['peran' => 'dosen', 'aktif' => 1]);
 $totalKelas = $kelasModel->count(['aktif' => 1]);
 
 $db = getDB();
-$stmt = $db->query("SELECT COUNT(*) as total FROM krs WHERE status = 'aktif'");
-$totalKRS = $stmt->fetch()['total'];
+
+// Get total KRS
+try {
+    $stmt = $db->query("SELECT COUNT(*) as total FROM krs");
+    $totalKRS = $stmt->fetch()['total'];
+} catch (PDOException $e) {
+    $totalKRS = 0;
+}
 
 // Get total mata kuliah
-$stmt2 = $db->query("SELECT COUNT(*) as total FROM mata_kuliah WHERE aktif = 1");
-$totalMatkul = $stmt2->fetch()['total'];
+try {
+    $stmt2 = $db->query("SELECT COUNT(*) as total FROM mata_kuliah");
+    $totalMatkul = $stmt2->fetch()['total'];
+} catch (PDOException $e) {
+    $totalMatkul = 0;
+}
 
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/sidebar-admin.php';
