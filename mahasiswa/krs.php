@@ -211,7 +211,7 @@ include __DIR__ . '/../includes/sidebar-mahasiswa.php';
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <table class="table table-bordered table-hover datatable">
+                <table id="tableKelasTersedia" class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Kode MK</th>
@@ -253,6 +253,32 @@ include __DIR__ . '/../includes/sidebar-mahasiswa.php';
         </div>
     </div>
 </div>
+
+<script>
+// Initialize DataTable untuk modal saat modal dibuka
+$(document).ready(function() {
+    var tableKelasTersedia;
+    
+    $('#modalTambahKRS').on('shown.bs.modal', function () {
+        if (!$.fn.DataTable.isDataTable('#tableKelasTersedia')) {
+            tableKelasTersedia = $('#tableKelasTersedia').DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/id.json"
+                }
+            });
+        }
+    });
+    
+    // Destroy DataTable saat modal ditutup untuk mencegah error saat dibuka kembali
+    $('#modalTambahKRS').on('hidden.bs.modal', function () {
+        if ($.fn.DataTable.isDataTable('#tableKelasTersedia')) {
+            tableKelasTersedia.destroy();
+        }
+    });
+});
+</script>
 
 <?php
 include __DIR__ . '/../includes/footer.php';
