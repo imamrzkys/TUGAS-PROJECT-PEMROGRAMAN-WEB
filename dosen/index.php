@@ -58,35 +58,83 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
             <div class="row mb-4">
                 <!-- Profile Card -->
                 <div class="col-xl-7 col-lg-12 mb-4 mb-xl-0">
-                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); height: 100%;">
+                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
                         <div class="card-body" style="padding: 25px;">
-                            <div class="row align-items-center">
-                                <div class="col-md-3 col-sm-12 text-center text-md-left mb-3 mb-md-0">
-                                    <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($user['nama_lengkap']); ?>&background=0066FF&color=fff&bold=true&size=200" 
-                                         alt="Profile" 
-                                         class="img-fluid" 
-                                         style="width: 90px; height: 90px; border-radius: 16px; border: 3px solid #0066FF;">
+                            <div class="row">
+                                <!-- Avatar & Basic Info -->
+                                <div class="col-md-4 col-sm-12 mb-3 mb-md-0">
+                                    <div style="text-align: center;">
+                                        <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($user['nama_lengkap']); ?>&background=0066FF&color=fff&bold=true&size=200" 
+                                             alt="Profile" 
+                                             class="img-fluid" 
+                                             style="width: 100px; height: 100px; border-radius: 16px; border: 3px solid #0066FF; margin-bottom: 12px;">
+                                        <span class="badge badge-success" style="font-size: 11px; padding: 6px 12px; border-radius: 8px;">DOSEN AKTIF</span>
+                                        <div style="margin-top: 12px;">
+                                            <button class="btn btn-sm btn-primary" style="border-radius: 8px; font-weight: 600; padding: 8px 20px; font-size: 12px;" onclick="window.location.href='../change-password.php'">
+                                                <i class="fas fa-user-edit"></i> Edit Profil
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-9 col-sm-12">
+                                
+                                <!-- Profile Details -->
+                                <div class="col-md-8 col-sm-12">
                                     <h4 style="margin: 0 0 8px 0; font-size: 22px; font-weight: 700; color: var(--text-primary);">
                                         <?php echo $user['nama_lengkap']; ?>
-                                        <span class="badge badge-success ml-2" style="font-size: 10px; vertical-align: middle;">DOSEN AKTIF</span>
                                     </h4>
                                     <p style="margin: 0 0 15px 0; color: var(--text-secondary); font-size: 13px;">
-                                        <strong>NIP: <?php echo $user['nim']; ?></strong> | Dosen Tetap • Teknik Informatika
+                                        <strong>NIP: <?php echo $user['nim']; ?></strong>
                                     </p>
+                                    
+                                    <!-- Info Grid -->
+                                    <div style="background: rgba(0, 102, 255, 0.05); padding: 15px; border-radius: 12px; margin-bottom: 15px;">
+                                        <div class="row">
+                                            <div class="col-6 mb-2">
+                                                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
+                                                    <i class="fas fa-building" style="color: var(--primary-blue); margin-right: 5px;"></i>Fakultas
+                                                </div>
+                                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Teknik Informatika</div>
+                                            </div>
+                                            <div class="col-6 mb-2">
+                                                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
+                                                    <i class="fas fa-briefcase" style="color: var(--primary-green); margin-right: 5px;"></i>Status
+                                                </div>
+                                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Dosen Tetap</div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
+                                                    <i class="fas fa-calendar-alt" style="color: var(--primary-orange); margin-right: 5px;"></i>Semester
+                                                </div>
+                                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);"><?php echo ucfirst($semesterAktif); ?> • <?php echo $tahunAjaranAktif; ?></div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
+                                                    <i class="fas fa-envelope" style="color: var(--primary-red); margin-right: 5px;"></i>Email
+                                                </div>
+                                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">dosen@siakad.ac.id</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Stats Row -->
                                     <div class="row">
                                         <div class="col-4">
-                                            <small class="text-muted" style="font-size: 11px;">Kelas Diampu</small>
-                                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue); line-height: 1.2;"><?php echo $totalKelas; ?></div>
+                                            <div style="text-align: center; padding: 12px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%); border-radius: 10px;">
+                                                <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue); line-height: 1;"><?php echo $totalKelas; ?></div>
+                                                <small class="text-muted" style="font-size: 10px;">Kelas Diampu</small>
+                                            </div>
                                         </div>
                                         <div class="col-4">
-                                            <small class="text-muted" style="font-size: 11px;">Total Mahasiswa</small>
-                                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-green); line-height: 1.2;"><?php echo $totalMahasiswa; ?></div>
+                                            <div style="text-align: center; padding: 12px; background: linear-gradient(135deg, rgba(6, 214, 160, 0.1) 0%, rgba(6, 214, 160, 0.05) 100%); border-radius: 10px;">
+                                                <div style="font-size: 24px; font-weight: 700; color: var(--primary-green); line-height: 1;"><?php echo $totalMahasiswa; ?></div>
+                                                <small class="text-muted" style="font-size: 10px;">Total Mahasiswa</small>
+                                            </div>
                                         </div>
                                         <div class="col-4">
-                                            <small class="text-muted" style="font-size: 11px;">Tahun Mengajar</small>
-                                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-orange); line-height: 1.2;">5+</div>
+                                            <div style="text-align: center; padding: 12px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border-radius: 10px;">
+                                                <div style="font-size: 24px; font-weight: 700; color: var(--primary-orange); line-height: 1;">5+</div>
+                                                <small class="text-muted" style="font-size: 10px;">Tahun Mengajar</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
