@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title><?php echo $pageTitle ?? APP_NAME; ?> - <?php echo APP_NAME; ?></title>
 
     <!-- Google Font: Source Sans Pro -->
@@ -16,7 +19,7 @@
     <!-- SweetAlert2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/custom.css">
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/custom.css?v=<?php echo time(); ?>">
     
     <style>
         .brand-link {
