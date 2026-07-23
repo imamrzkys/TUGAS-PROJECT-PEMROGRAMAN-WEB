@@ -7,7 +7,7 @@
         </div>
         <span class="brand-text">
             SIAKAD
-            <span class="brand-subtext">Academic System</span>
+            <span class="brand-subtext">Sistem Akademik</span>
         </span>
     </a>
 
@@ -21,7 +21,7 @@
             <div class="info">
                 <a href="#">
                     <?php echo $_SESSION['user_nama']; ?>
-                    <small>System Administrator</small>
+                    <small>Administrator Sistem</small>
                 </a>
             </div>
         </div>
@@ -33,55 +33,55 @@
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/index.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-th-large"></i>
-                        <p>Dashboard</p>
+                        <p>Beranda</p>
                     </a>
                 </li>
 
-                <li class="nav-header">USER MANAGEMENT</li>
+                <li class="nav-header">MANAJEMEN PENGGUNA</li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/mahasiswa.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'mahasiswa.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-user-graduate"></i>
-                        <p>User Management</p>
+                        <p>Manajemen Pengguna</p>
                     </a>
                 </li>
 
-                <li class="nav-header">ACADEMIC MANAGEMENT</li>
+                <li class="nav-header">MANAJEMEN AKADEMIK</li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/matakuliah.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'matakuliah.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-book-open"></i>
-                        <p>Academic Management</p>
+                        <p>Manajemen Akademik</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/dosen.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'dosen.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-dollar-sign"></i>
-                        <p>Finance</p>
+                        <p>Keuangan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/admin/pengumuman.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'pengumuman.php' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-bullhorn"></i>
-                        <p>Announcements</p>
+                        <p>Pengumuman</p>
                     </a>
                 </li>
 
-                <li class="nav-header">SETTINGS</li>
+                <li class="nav-header">PENGATURAN</li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/change-password.php" class="nav-link">
                         <i class="nav-icon fas fa-cog"></i>
-                        <p>Settings</p>
+                        <p>Pengaturan</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="<?php echo BASE_URL; ?>/logout.php" class="nav-link" style="color: var(--primary-red) !important;">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
-                        <p>Logout</p>
+                        <p>Keluar</p>
                     </a>
                 </li>
 

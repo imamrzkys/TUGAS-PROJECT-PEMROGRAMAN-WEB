@@ -49,7 +49,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p class="text-muted mb-0" style="font-size: 14px;">Welcome back, here is what's happening in SIAKAD today.</p>
+                    <p class="text-muted mb-0" style="font-size: 14px;">Selamat datang kembali, berikut ringkasan aktivitas SIAKAD hari ini.</p>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="stat-icon">
                             <i class="fas fa-user-graduate"></i>
                         </div>
-                        <div class="stat-label">TOTAL STUDENTS</div>
+                        <div class="stat-label">TOTAL MAHASISWA</div>
                         <div class="stat-value"><?php echo number_format($totalMahasiswa); ?></div>
                         <div class="stat-change stat-up">
                             <i class="fas fa-arrow-up"></i> +12%
@@ -86,7 +86,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="stat-icon">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <div class="stat-label">LECTURERS</div>
+                        <div class="stat-label">DOSEN PENGAJAR</div>
                         <div class="stat-value"><?php echo number_format($totalDosen); ?></div>
                         <div class="stat-change stat-up">
                             <i class="fas fa-arrow-up"></i> +3%
@@ -99,9 +99,9 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="stat-icon">
                             <i class="fas fa-book"></i>
                         </div>
-                        <div class="stat-label">COURSES</div>
+                        <div class="stat-label">MATA KULIAH</div>
                         <div class="stat-value"><?php echo number_format($totalMatkul); ?></div>
-                        <span class="badge badge-warning mt-2"><i class="fas fa-circle"></i> Active</span>
+                        <span class="badge badge-warning mt-2"><i class="fas fa-circle"></i> Aktif</span>
                     </div>
                 </div>
 
@@ -110,9 +110,9 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                         <div class="stat-icon">
                             <i class="fas fa-door-open"></i>
                         </div>
-                        <div class="stat-label">ACTIVE CLASSES</div>
+                        <div class="stat-label">KELAS AKTIF</div>
                         <div class="stat-value"><?php echo number_format($totalKelas); ?></div>
-                        <span class="badge badge-danger mt-2"><?php echo $totalKelas; ?> Classes</span>
+                        <span class="badge badge-danger mt-2"><?php echo $totalKelas; ?> Kelas</span>
                     </div>
                 </div>
             </div>
@@ -124,13 +124,13 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <i class="fas fa-chart-line"></i> Student Enrollment Trends
+                                <i class="fas fa-chart-line"></i> Tren Pendaftaran Mahasiswa
                             </h3>
                             <div class="card-tools">
                                 <select class="form-control form-control-sm" style="width: auto; display: inline-block;">
-                                    <option>Last 6 Months</option>
-                                    <option>Last Year</option>
-                                    <option>All Time</option>
+                                    <option>6 Bulan Terakhir</option>
+                                    <option>Tahun Terakhir</option>
+                                    <option>Semua Waktu</option>
                                 </select>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                             <div style="height: 300px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0, 102, 255, 0.05) 0%, rgba(0, 102, 255, 0.01) 100%); border-radius: 8px;">
                                 <div class="text-center">
                                     <i class="fas fa-chart-bar" style="font-size: 48px; color: var(--primary-blue); opacity: 0.3; margin-bottom: 15px;"></i>
-                                    <p class="text-muted">Chart visualization would appear here<br><small>Showing enrollment trends over time</small></p>
+                                    <p class="text-muted">Visualisasi grafik akan ditampilkan di sini<br><small>Menampilkan tren pendaftaran mahasiswa dari waktu ke waktu</small></p>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <i class="fas fa-bolt"></i> Quick Actions
+                                <i class="fas fa-bolt"></i> Aksi Cepat
                             </h3>
                         </div>
                         <div class="card-body">
@@ -159,7 +159,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                     <a href="/admin/mahasiswa.php" style="text-decoration: none; color: inherit;">
                                         <div style="background: rgba(0, 102, 255, 0.1); padding: 20px; border-radius: 12px; transition: all 0.3s;" onmouseover="this.style.background='rgba(0, 102, 255, 0.2)'" onmouseout="this.style.background='rgba(0, 102, 255, 0.1)'">
                                             <i class="fas fa-user-plus" style="font-size: 28px; color: var(--primary-blue);"></i>
-                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Modify KRS</p>
+                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Modifikasi KRS</p>
                                         </div>
                                     </a>
                                 </div>
@@ -167,7 +167,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                     <a href="/admin/pengumuman.php" style="text-decoration: none; color: inherit;">
                                         <div style="background: rgba(6, 214, 160, 0.1); padding: 20px; border-radius: 12px; transition: all 0.3s;" onmouseover="this.style.background='rgba(6, 214, 160, 0.2)'" onmouseout="this.style.background='rgba(6, 214, 160, 0.1)'">
                                             <i class="fas fa-graduation-cap" style="font-size: 28px; color: var(--primary-green);"></i>
-                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Scholarship</p>
+                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Beasiswa</p>
                                         </div>
                                     </a>
                                 </div>
@@ -175,7 +175,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                     <a href="/admin/kelas.php" style="text-decoration: none; color: inherit;">
                                         <div style="background: rgba(230, 57, 70, 0.1); padding: 20px; border-radius: 12px; transition: all 0.3s;" onmouseover="this.style.background='rgba(230, 57, 70, 0.2)'" onmouseout="this.style.background='rgba(230, 57, 70, 0.1)'">
                                             <i class="fas fa-file-alt" style="font-size: 28px; color: var(--primary-red);"></i>
-                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Generate<br>Transcripts</p>
+                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Cetak<br>Transkrip</p>
                                         </div>
                                     </a>
                                 </div>
@@ -183,7 +183,7 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                     <a href="/admin/pengumuman.php" style="text-decoration: none; color: inherit;">
                                         <div style="background: rgba(245, 158, 11, 0.1); padding: 20px; border-radius: 12px; transition: all 0.3s;" onmouseover="this.style.background='rgba(245, 158, 11, 0.2)'" onmouseout="this.style.background='rgba(245, 158, 11, 0.1)'">
                                             <i class="fas fa-bullhorn" style="font-size: 28px; color: var(--primary-orange);"></i>
-                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Broadcast</p>
+                                            <p style="margin-top: 10px; margin-bottom: 0; font-size: 12px; font-weight: 600;">Pengumuman</p>
                                         </div>
                                     </a>
                                 </div>
@@ -195,30 +195,30 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                     <div class="card mt-3">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <i class="fas fa-bullhorn"></i> Announcements
+                                <i class="fas fa-bullhorn"></i> Pengumuman
                             </h3>
                             <div class="card-tools">
-                                <a href="/admin/pengumuman.php" style="font-size: 12px;">See All</a>
+                                <a href="/admin/pengumuman.php" style="font-size: 12px;">Lihat Semua</a>
                             </div>
                         </div>
                         <div class="card-body p-0">
                             <div class="timeline-item" style="border-left: 2px solid var(--border-color); padding-left: 20px; margin: 15px;">
                                 <div style="width: 10px; height: 10px; background: var(--primary-red); border-radius: 50%; position: absolute; left: 15px; border: 2px solid white;"></div>
-                                <small class="text-muted">2 HOURS AGO</small>
-                                <p style="margin: 5px 0; font-weight: 600; font-size: 13px;">Graduation Registration Open</p>
-                                <small class="text-muted">Deadline for registration is Oct...</small>
+                                <small class="text-muted">2 JAM LALU</small>
+                                <p style="margin: 5px 0; font-weight: 600; font-size: 13px;">Pendaftaran Wisuda Dibuka</p>
+                                <small class="text-muted">Batas waktu pendaftaran hingga Oktober...</small>
                             </div>
                             <div class="timeline-item" style="border-left: 2px solid var(--border-color); padding-left: 20px; margin: 15px;">
                                 <div style="width: 10px; height: 10px; background: var(--primary-blue); border-radius: 50%; position: absolute; left: 15px; border: 2px solid white;"></div>
-                                <small class="text-muted">YESTERDAY</small>
-                                <p style="margin: 5px 0; font-weight: 600; font-size: 13px;">System Maintenance</p>
-                                <small class="text-muted">Academic portal will be down t...</small>
+                                <small class="text-muted">KEMARIN</small>
+                                <p style="margin: 5px 0; font-weight: 600; font-size: 13px;">Pemeliharaan Sistem</p>
+                                <small class="text-muted">Portal akademik akan tidak dapat diakses...</small>
                             </div>
                             <div class="timeline-item" style="border-left: 2px solid var(--border-color); padding-left: 20px; margin: 15px;">
                                 <div style="width: 10px; height: 10px; background: var(--primary-green); border-radius: 50%; position: absolute; left: 15px; border: 2px solid white;"></div>
-                                <small class="text-muted">OCT 12, 2026</small>
-                                <p style="margin: 5px 0; font-weight: 600; font-size: 13px;">New Scholarship Grant</p>
-                                <small class="text-muted">Available for faculty of...</small>
+                                <small class="text-muted">12 OKT 2026</small>
+                                <p style="margin: 5px 0; font-weight: 600; font-size: 13px;">Beasiswa Baru Tersedia</p>
+                                <small class="text-muted">Tersedia untuk fakultas...</small>
                             </div>
                         </div>
                     </div>
@@ -231,21 +231,21 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                <i class="fas fa-history"></i> Recent User Activity
+                                <i class="fas fa-history"></i> Aktivitas Pengguna Terkini
                             </h3>
                             <div class="card-tools">
-                                <span class="badge badge-warning"><i class="fas fa-circle"></i> Pending Requests</span>
+                                <span class="badge badge-warning"><i class="fas fa-circle"></i> Permintaan Tertunda</span>
                             </div>
                         </div>
                         <div class="card-body p-0">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>USER</th>
-                                        <th>ACTION</th>
-                                        <th>TIMESTAMP</th>
+                                        <th>PENGGUNA</th>
+                                        <th>AKTIVITAS</th>
+                                        <th>WAKTU</th>
                                         <th>STATUS</th>
-                                        <th>ACTION</th>
+                                        <th>AKSI</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -255,14 +255,14 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                                 <div style="width: 35px; height: 35px; border-radius: 8px; background: var(--primary-blue); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">FA</div>
                                                 <div>
                                                     <strong>Fahri Alamsyah</strong><br>
-                                                    <small class="text-muted">Student (20230810)</small>
+                                                    <small class="text-muted">Mahasiswa (20230810)</small>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>Course Enrollment</td>
-                                        <td>Today, 14:24 PM</td>
-                                        <td><span class="badge badge-primary">COMPLETED</span></td>
-                                        <td><button class="btn btn-sm btn-primary">Details</button></td>
+                                        <td>Pengisian KRS</td>
+                                        <td>Hari ini, 14:24</td>
+                                        <td><span class="badge badge-primary">SELESAI</span></td>
+                                        <td><button class="btn btn-sm btn-primary">Detail</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -270,14 +270,14 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                                 <div style="width: 35px; height: 35px; border-radius: 8px; background: var(--primary-green); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">LW</div>
                                                 <div>
                                                     <strong>Laila Wahyuni</strong><br>
-                                                    <small class="text-muted">Lecturer (L-4210)</small>
+                                                    <small class="text-muted">Dosen (D-4210)</small>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>Grade Submission</td>
-                                        <td>Today, 11:05 AM</td>
-                                        <td><span class="badge badge-warning">PENDING</span></td>
-                                        <td><button class="btn btn-sm btn-success">Review</button></td>
+                                        <td>Pengajuan Nilai</td>
+                                        <td>Hari ini, 11:05</td>
+                                        <td><span class="badge badge-warning">MENUNGGU</span></td>
+                                        <td><button class="btn btn-sm btn-success">Tinjau</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -285,14 +285,14 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                                 <div style="width: 35px; height: 35px; border-radius: 8px; background: var(--primary-purple); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">BS</div>
                                                 <div>
                                                     <strong>Budi Santoso</strong><br>
-                                                    <small class="text-muted">Student (20220112)</small>
+                                                    <small class="text-muted">Mahasiswa (20220112)</small>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>KRS Revision</td>
-                                        <td>Yesterday, 16:45 PM</td>
-                                        <td><span class="badge badge-primary">COMPLETED</span></td>
-                                        <td><button class="btn btn-sm btn-primary">Details</button></td>
+                                        <td>Revisi KRS</td>
+                                        <td>Kemarin, 16:45</td>
+                                        <td><span class="badge badge-primary">SELESAI</span></td>
+                                        <td><button class="btn btn-sm btn-primary">Detail</button></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -300,19 +300,19 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                                                 <div style="width: 35px; height: 35px; border-radius: 8px; background: var(--primary-orange); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">ID</div>
                                                 <div>
                                                     <strong>Indah Dwi</strong><br>
-                                                    <small class="text-muted">Admin Assistant</small>
+                                                    <small class="text-muted">Asisten Admin</small>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>System Config Update</td>
-                                        <td>Yesterday, 09:12 AM</td>
-                                        <td><span class="badge badge-primary">COMPLETED</span></td>
-                                        <td><button class="btn btn-sm btn-primary">Details</button></td>
+                                        <td>Pembaruan Konfigurasi Sistem</td>
+                                        <td>Kemarin, 09:12</td>
+                                        <td><span class="badge badge-primary">SELESAI</span></td>
+                                        <td><button class="btn btn-sm btn-primary">Detail</button></td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="p-3 text-center border-top">
-                                <small class="text-muted">Showing 4 of 25 activities</small>
+                                <small class="text-muted">Menampilkan 4 dari 25 aktivitas</small>
                                 <a href="#" class="ml-3"><i class="fas fa-arrow-right"></i></a>
                                 <a href="#" class="ml-2"><i class="fas fa-arrow-left"></i></a>
                             </div>
@@ -329,9 +329,9 @@ include __DIR__ . '/../includes/sidebar-admin.php';
                             <p class="mb-0 text-muted" style="font-size: 13px;">
                                 <i class="fas fa-server text-success"></i> Server: Jakarta-01 
                                 <span class="mx-2">|</span>
-                                <i class="fas fa-code-branch text-primary"></i> Version 2.4.1-Stable
+                                <i class="fas fa-code-branch text-primary"></i> Versi 2.4.1-Stabil
                                 <span class="mx-2">|</span>
-                                © 2026 SIAKAD Modern Academic System. All rights reserved.
+                                © 2026 SIAKAD Modern - Sistem Informasi Akademik. Hak cipta dilindungi.
                             </p>
                         </div>
                     </div>
