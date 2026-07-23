@@ -106,6 +106,110 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                 </div>
 
                 <div class="col-lg-4">
+                    <!-- Mini Calendar -->
+                    <div class="card mb-3" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                        <div class="card-body" style="padding: 20px;">
+                            <?php
+                            // Get current date info
+                            $current_month = 7; // Juli
+                            $current_year = 2026;
+                            $current_day = 23; // Hari ini
+                            $month_name = 'Juli';
+                            
+                            // Get first day of month and total days
+                            $first_day = date('N', strtotime("$current_year-$current_month-01")); // 1=Monday, 7=Sunday
+                            $total_days = date('t', strtotime("$current_year-$current_month-01"));
+                            
+                            // Days with classes (example)
+                            $days_with_classes = [];
+                            foreach ($kelasDiajar as $kelas) {
+                                $hari = $kelas['hari'];
+                                $day_map = ['Senin' => 1, 'Selasa' => 2, 'Rabu' => 3, 'Kamis' => 4, 'Jumat' => 5];
+                                if (isset($day_map[$hari])) {
+                                    for ($d = 1; $d <= $total_days; $d++) {
+                                        $day_of_week = date('N', strtotime("$current_year-$current_month-$d"));
+                                        if ($day_of_week == $day_map[$hari]) {
+                                            if (!in_array($d, $days_with_classes)) {
+                                                $days_with_classes[] = $d;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            ?>
+                            
+                            <!-- Calendar Header -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h6 style="font-weight: 700; margin: 0; color: var(--text-primary);">
+                                    <i class="far fa-calendar" style="color: var(--primary-blue);"></i> <?php echo $month_name; ?> <?php echo $current_year; ?>
+                                </h6>
+                                <div>
+                                    <button style="border: none; background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); width: 28px; height: 28px; border-radius: 6px; margin-right: 5px; cursor: pointer;">
+                                        <i class="fas fa-chevron-left" style="font-size: 12px;"></i>
+                                    </button>
+                                    <button style="border: none; background: rgba(0, 102, 255, 0.1); color: var(--primary-blue); width: 28px; height: 28px; border-radius: 6px; cursor: pointer;">
+                                        <i class="fas fa-chevron-right" style="font-size: 12px;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Calendar Grid -->
+                            <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;">
+                                <!-- Day Headers -->
+                                <?php 
+                                $day_headers = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+                                foreach ($day_headers as $day_header): 
+                                ?>
+                                    <div style="text-align: center; font-size: 11px; font-weight: 600; color: var(--text-muted); padding: 8px 0;">
+                                        <?php echo $day_header; ?>
+                                    </div>
+                                <?php endforeach; ?>
+                                
+                                <!-- Empty cells before first day -->
+                                <?php for ($i = 1; $i < $first_day; $i++): ?>
+                                    <div style="padding: 8px;"></div>
+                                <?php endfor; ?>
+                                
+                                <!-- Calendar days -->
+                                <?php for ($day = 1; $day <= $total_days; $day++): 
+                                    $is_today = ($day == $current_day);
+                                    $has_class = in_array($day, $days_with_classes);
+                                    $day_of_week = date('N', strtotime("$current_year-$current_month-$day"));
+                                    $is_weekend = ($day_of_week >= 6);
+                                ?>
+                                    <div style="position: relative; text-align: center; padding: 8px; border-radius: 8px; 
+                                        background: <?php echo $is_today ? 'linear-gradient(135deg, #0066FF 0%, #0052CC 100%)' : ($has_class ? 'rgba(6, 214, 160, 0.1)' : ($is_weekend ? 'rgba(0,0,0,0.02)' : 'transparent')); ?>; 
+                                        color: <?php echo $is_today ? 'white' : 'var(--text-primary)'; ?>; 
+                                        font-size: 13px; 
+                                        font-weight: <?php echo $is_today ? '700' : '500'; ?>; 
+                                        cursor: pointer;
+                                        transition: all 0.2s;"
+                                        onmouseover="this.style.background='<?php echo $is_today ? 'linear-gradient(135deg, #0052CC 0%, #003d99 100%)' : 'rgba(0, 102, 255, 0.1)'; ?>'"
+                                        onmouseout="this.style.background='<?php echo $is_today ? 'linear-gradient(135deg, #0066FF 0%, #0052CC 100%)' : ($has_class ? 'rgba(6, 214, 160, 0.1)' : ($is_weekend ? 'rgba(0,0,0,0.02)' : 'transparent')); ?>'">
+                                        <?php echo $day; ?>
+                                        <?php if ($has_class && !$is_today): ?>
+                                            <div style="width: 4px; height: 4px; background: var(--primary-green); border-radius: 50%; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);"></div>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endfor; ?>
+                            </div>
+                            
+                            <!-- Calendar Legend -->
+                            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 15px;">
+                                    <div style="display: flex; align-items: center; gap: 5px;">
+                                        <div style="width: 12px; height: 12px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); border-radius: 4px;"></div>
+                                        <span style="font-size: 11px; color: var(--text-muted);">Hari Ini</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 5px;">
+                                        <div style="width: 4px; height: 4px; background: var(--primary-green); border-radius: 50%;"></div>
+                                        <span style="font-size: 11px; color: var(--text-muted);">Ada Kelas</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);">
                         <div class="card-body" style="padding: 25px;">
                             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
