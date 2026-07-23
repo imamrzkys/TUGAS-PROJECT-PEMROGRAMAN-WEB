@@ -102,18 +102,20 @@ include __DIR__ . '/../includes/sidebar-mahasiswa.php';
                 </div>
 
                 <div class="col-lg-4">
-                    <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);">
+                    <div class="card" style="border: none; border-radius: 16px; background: linear-gradient(135deg, #0066FF 0%, #0052CC 100%); color: white; box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3); min-height: 180px;">
                         <div class="card-body" style="padding: 25px;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                                <div>
-                                    <i class="fas fa-clipboard-check" style="font-size: 20px; opacity: 0.8;"></i>
-                                    <div style="font-size: 13px; margin-top: 10px; margin-bottom: 5px; opacity: 0.9;">Status KRS</div>
-                                    <div style="font-size: 11px; opacity: 0.8; margin-bottom: 15px;">Rencana akademik untuk Semester Ganjil 2026/2027 telah disetujui oleh pembimbing akademik Anda.</div>
-                                    <button class="btn btn-light btn-sm" style="color: #0066FF; font-weight: 600;" onclick="window.location.href='krs.php'">
-                                        Lihat KRS Detail
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;">
+                                <div style="flex: 1;">
+                                    <i class="fas fa-clipboard-check" style="font-size: 24px; opacity: 0.9; display: block; margin-bottom: 12px;"></i>
+                                    <div style="font-size: 14px; margin-bottom: 8px; opacity: 1; font-weight: 600; line-height: 1.4;">Status KRS</div>
+                                    <div style="font-size: 11px; opacity: 0.9; margin-bottom: 15px; line-height: 1.5;">Rencana akademik untuk Semester Ganjil 2026/2027 telah disetujui oleh pembimbing akademik Anda.</div>
+                                    <button class="btn btn-light btn-sm" style="color: #0066FF; font-weight: 600; border-radius: 8px; padding: 8px 16px;" onclick="window.location.href='krs.php'">
+                                        <i class="fas fa-clipboard-list" style="margin-right: 5px;"></i> Lihat KRS Detail
                                     </button>
                                 </div>
-                                <span class="badge badge-success">TERVERIFIKASI</span>
+                                <div style="flex-shrink: 0;">
+                                    <span class="badge badge-success" style="font-size: 10px; padding: 6px 10px; font-weight: 700; border-radius: 6px; white-space: nowrap;">TERVERIFIKASI</span>
+                                </div>
                             </div>
                         </div>
                     </div>
