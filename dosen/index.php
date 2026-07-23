@@ -38,7 +38,7 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
             <div class="row mb-2">
                 <div class="col-sm-12">
                     <h1 class="m-0">Dashboard Dosen</h1>
-                    <p class="text-muted mb-0" style="font-size: 14px;">Selamat datang kembali, <?php echo $user['nama']; ?> (<?php echo $user['nim']; ?>).</p>
+                    <p class="text-muted mb-0" style="font-size: 14px;">Selamat datang kembali, <?php echo isset($user['nama_lengkap']) ? $user['nama_lengkap'] : 'Dosen'; ?> (<?php echo isset($user['nim']) ? $user['nim'] : ''; ?>).</p>
                 </div>
             </div>
         </div>
