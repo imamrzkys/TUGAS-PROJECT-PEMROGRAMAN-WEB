@@ -384,6 +384,96 @@ include __DIR__ . '/../includes/sidebar-dosen.php';
                 </div>
             </div>
 
+            <!-- Jadwal Mengajar Minggu Ini -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card" style="border: none; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);">
+                        <div class="card-header" style="background: white; border-bottom: 2px solid var(--border-color); padding: 20px 25px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <h5 style="font-weight: 700; margin: 0; color: var(--text-primary);">
+                                        <i class="fas fa-calendar-week" style="color: var(--primary-blue);"></i> Jadwal Mengajar Minggu Ini
+                                    </h5>
+                                    <p style="font-size: 12px; color: var(--text-muted); margin: 5px 0 0 0;">23 - 27 Juli 2026</p>
+                                </div>
+                                <a href="jadwal.php" class="btn btn-primary btn-sm" style="border-radius: 8px; font-weight: 600; padding: 8px 20px;">
+                                    <i class="fas fa-calendar-alt"></i> Lihat Kalender Lengkap
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 25px;">
+                            <div class="row">
+                                <?php if (count($kelasDiajar) > 0): ?>
+                                    <?php 
+                                    $hari_list = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
+                                    $kelas_per_hari = [];
+                                    foreach ($kelasDiajar as $kelas) {
+                                        $hari = $kelas['hari'];
+                                        if (!isset($kelas_per_hari[$hari])) {
+                                            $kelas_per_hari[$hari] = [];
+                                        }
+                                        $kelas_per_hari[$hari][] = $kelas;
+                                    }
+                                    
+                                    foreach ($hari_list as $hari): 
+                                        $is_today = ($hari == 'Kamis'); // Hari ini Kamis
+                                    ?>
+                                        <div class="col-lg-2-4 col-md-4 col-sm-6 mb-4" style="flex: 0 0 20%; max-width: 20%;">
+                                            <div style="padding: 20px; background: <?php echo $is_today ? 'linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 102, 255, 0.05) 100%)' : 'rgba(0,0,0,0.02)'; ?>; border-radius: 12px; border-left: 4px solid <?php echo $is_today ? 'var(--primary-blue)' : 'var(--border-color)'; ?>; min-height: 200px;">
+                                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                                    <h6 style="font-weight: 700; margin: 0; color: var(--text-primary); font-size: 14px;"><?php echo $hari; ?></h6>
+                                                    <?php if ($is_today): ?>
+                                                        <span class="badge badge-primary" style="font-size: 9px;">HARI INI</span>
+                                                    <?php endif; ?>
+                                                </div>
+                                                
+                                                <?php if (isset($kelas_per_hari[$hari]) && count($kelas_per_hari[$hari]) > 0): ?>
+                                                    <?php foreach ($kelas_per_hari[$hari] as $kelas): ?>
+                                                        <div style="background: white; padding: 12px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                                            <div style="font-size: 11px; color: var(--primary-blue); font-weight: 700; margin-bottom: 5px;">
+                                                                <?php echo $kelas['kode_matkul']; ?>
+                                                            </div>
+                                                            <div style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 8px; line-height: 1.3;">
+                                                                <?php echo strlen($kelas['nama_matkul']) > 30 ? substr($kelas['nama_matkul'], 0, 30) . '...' : $kelas['nama_matkul']; ?>
+                                                            </div>
+                                                            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
+                                                                <i class="far fa-clock" style="color: var(--primary-green); margin-right: 4px;"></i>
+                                                                <?php echo substr($kelas['jam_mulai'], 0, 5); ?>-<?php echo substr($kelas['jam_selesai'], 0, 5); ?>
+                                                            </div>
+                                                            <div style="font-size: 11px; color: var(--text-muted); margin-bottom: 4px;">
+                                                                <i class="fas fa-door-open" style="color: var(--primary-orange); margin-right: 4px;"></i>
+                                                                <?php echo $kelas['ruangan']; ?>
+                                                            </div>
+                                                            <div style="font-size: 11px; color: var(--text-muted);">
+                                                                <i class="fas fa-users" style="color: var(--primary-green); margin-right: 4px;"></i>
+                                                                <?php echo $kelas['jumlah_mahasiswa']; ?> Mahasiswa
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                <?php else: ?>
+                                                    <div style="text-align: center; padding: 30px 10px; opacity: 0.5;">
+                                                        <i class="fas fa-coffee" style="font-size: 32px; color: var(--text-muted); margin-bottom: 10px;"></i>
+                                                        <p style="font-size: 11px; color: var(--text-muted); margin: 0;">Tidak ada jadwal</p>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div class="col-12">
+                                        <div style="text-align: center; padding: 60px 20px;">
+                                            <i class="fas fa-calendar-times" style="font-size: 64px; opacity: 0.2; color: var(--text-muted); margin-bottom: 20px;"></i>
+                                            <p style="font-size: 16px; color: var(--text-muted); margin: 0;">Belum ada jadwal mengajar untuk minggu ini</p>
+                                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">Silakan hubungi admin untuk penugasan jadwal</p>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 </div>
